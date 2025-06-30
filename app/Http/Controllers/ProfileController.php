@@ -20,7 +20,12 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-
+ public function myblog(Request $request): View
+    {
+        return view('profile.myblogs', [
+            'user' => $request->user(),
+        ]);
+    }
     /**
      * Update the user's profile information.
      */

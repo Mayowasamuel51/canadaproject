@@ -2,14 +2,14 @@
 			<div class="container">
 				<div class="hm-footer-copyright text-center">
 					<div class="footer-social">
-						<a href="#"><i class="fa fa-facebook"></i></a>	
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-						<a href="#"><i class="fa fa-pinterest"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>	
+						<!-- <a href="#"><i class="fa fa-facebook"></i></a>	 -->
+						<!-- <a href="#"><i class="fa fa-instagram"></i></a> -->
+						<!-- <a href="#"><i class="fa fa-linkedin"></i></a> -->
+						<!-- <a href="#"><i class="fa fa-pinterest"></i></a> -->
+						<!-- <a href="#"><i class="fa fa-behance"></i></a>	 -->
 					</div>
-					<p>
-						&copy;copyright.Upcanada <a href="https://www.themesine.com/">themesine</a>
+					<p class="font-semibold">
+						&copy;Copyright @2025 Upcanada</a>
 					</p><!--/p-->
 				</div><!--/.text-center-->
 			</div><!--/.container-->
