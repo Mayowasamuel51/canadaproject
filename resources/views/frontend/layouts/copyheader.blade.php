@@ -106,8 +106,8 @@
 										<li class="single-cart-list">
 											<a href="#" class="photo"><img src="assets/images/collection/arrivals2.png" class="cart-thumb" alt="image" /></a>
 											<div class="cart-list-txt">
-												<!-- <h6><a href="#">single <br> armchair</a></h6> -->
-												<!-- <p>1 x - <span class="price">$180.00</span></p> -->
+												<h6><a href="#">single <br> armchair</a></h6>
+												<p>1 x - <span class="price">$180.00</span></p>
 											</div><!--/.cart-list-txt-->
 											<div class="cart-close">
 												<span class="lnr lnr-cross"></span>
@@ -138,26 +138,41 @@
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 								<i class="fa fa-bars"></i>
 							</button>
-							<a class="navbar-brand" href="index.html">upcanada</a>
+							<!-- <a class="navbar-brand" href="index.html">furn.</a> -->
+							<a lass="navbar-brand" href="{{ route('home') }}">Upcanada</a>
 
 						</div><!--/.navbar-header-->
 						<!-- End Header Navigation -->
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-						 <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-				                    <li class=" scroll active"><a href="#home">Home</a></li>
-				                    <!-- <li class="scroll"><a href="#new-arrivals">new arrival</a></li> -->
-				                    <li class="scroll"><a href="#feature">Events</a></li>
-				                    <li class="scroll"><a href="#blog">Blog</a></li>
-				                    <li class="scroll"><a href="#newsletter">Markertplace</a></li>
-									 <li class="scro"><a href="{{ route('login') }}">Login</a></li>
-                               
+							<ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
+								<li class=" scroll active"><a href="#home">home</a></li>
+								<li class="scroll"><a href="#new-arrivals">memembers</a></li>
+								<li class="scroll"><a href="#feature">events</a></li>
+								<li class="scroll"><a href="#blog">marketplace</a></li>
+								@guest
+								<li class="scro"><a href="{{ route('login') }}">Login</a></li>
 
-				                </ul><!--/.nav -->
+								@endguest
+
+								@auth
+								<li class="scro">
+									<a href="{{ route('dashboard') }}">Dashboard</a>
+								</li>
+								<li class="scro">
+									<form action="{{ route('logout') }}" method="POST" style="display: inline;">
+										@csrf
+										<button type="submit" style="background: none; border: none; padding: 0; color: inherit; cursor: pointer;">
+											<!-- Logout -->
+										</button>
+									</form>
+								</li>
+								@endauth
+							</ul><!--/.nav -->
 						</div><!-- /.navbar-collapse -->
 					</div><!--/.container-->
-				</nav> <!--/nav-->
+				</nav><!--/nav-->
 				<!-- End Navigation -->
 			</div><!--/.header-area-->
 			<div class="clearfix"></div>

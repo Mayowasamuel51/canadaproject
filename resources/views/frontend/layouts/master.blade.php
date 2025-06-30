@@ -36,7 +36,6 @@
         <!--Custom JS-->
         <script  src="{{ asset("assets/js/custom.js") }}"></script>
 
-	@include('frontend.layouts.footer')
 
 </body>
 </html>

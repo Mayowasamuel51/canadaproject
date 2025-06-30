@@ -1,10 +1,11 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Myblogs') }}
-        </h2>
-    </x-slot>
+@extends('frontend.layouts.master')
+@section('title','CANADA BLOG || DASHBOARD')
+@section('main-content')
 
 
-    <h1>MY BLOGS </h1>
-</x-app-layout>
+
+<div class="pt-96" style="margin-top: 100px;"><h1>THIS IS BLOG</h1></div>
+
+
+
+@endsection
