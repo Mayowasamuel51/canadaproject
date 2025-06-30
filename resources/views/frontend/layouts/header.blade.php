@@ -1,6 +1,6 @@
 	<header id="home" class="welcome-hero">
 
-		
+
 		<!-- top-area Start -->
 		<div class="top-area">
 			<div class="header-area">
@@ -98,25 +98,25 @@
 
 								@endguest
 
-							
-     @auth
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        Account <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                                        <li><a href="{{ route('profile.myblogs') }}">My Blogs</a></li>
-                                        <li><a href="{{ route('profile.edit') }}">Profile</a></li>
-                                        <li>
-                                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                                @csrf
-                                                <button type="submit" class="dropdown-item" style="background: none; border: none; padding: 5px 15px; width: 100%; text-align: left;">Logout</button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </li>
-                            @endauth
+
+								@auth
+								<li class="dropdown">
+									<a href="" class="dropdown-toggle" data-toggle="dropdown">
+										Account <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+										<li><a href="{{ route('profile.myblogs') }}">My Blogs</a></li>
+										<li><a href="{{ route('profile.edit') }}">Profile</a></li>
+										<li>
+											<form action="{{ route('logout') }}" method="POST" style="display: inline;">
+												@csrf
+												<button type="submit" class="dropdown-item" style="background: none; border: none; padding: 5px 15px; width: 100%; text-align: left;">Logout</button>
+											</form>
+										</li>
+									</ul>
+								</li>
+								@endauth
 							</ul><!--/.nav -->
 						</div><!-- /.navbar-collapse -->
 					</div><!--/.container-->
@@ -129,6 +129,3 @@
 		<!-- top-area End -->
 
 	</header>
-
-
-
