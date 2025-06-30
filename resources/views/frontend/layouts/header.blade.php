@@ -148,7 +148,7 @@
 				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 				                <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
 				                    <li class=" scroll active"><a href="#home">home</a></li>
-				                    <!-- <li class="scroll"><a href="#new-arrivals">new arrival</a></li> -->
+				                    <li class="scroll"><a href="#new-arrivals">memembers</a></li>
 				                    <li class="scroll"><a href="#feature">events</a></li>
 				                    <li class="scroll"><a href="#blog">marketplace</a></li>
 				                     <li class="scro"><a href="{{ route('login') }}">login</a></li>
