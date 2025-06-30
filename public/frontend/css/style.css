@@ -990,16 +990,42 @@ nav.navbar.bootsnav ul.nav > li.dropdown:hover .dropdown-menu {
 }
 
 /* Optional: reduce padding on dropdown links */
-nav.navbar.bootsnav ul.nav > li.dropdown .dropdown-menu > li > a {
-    padding: 10px 20px;
-    color: #616060;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
+/* Ensure dropdown doesn't shift navbar */
+nav.navbar.bootsnav ul.nav > li.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    z-index: 999;
+    min-width: 200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* Show dropdown on hover */
+nav.navbar.bootsnav ul.nav > li.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-nav.navbar.bootsnav ul.nav > li.dropdown .dropdown-menu > li > a:hover {
-    background-color: #f5f5f5;
-    color: #e99c2e;
+/* Keep navbar brand stable */
+.navbar-header a.navbar-brand {
+    padding: 30px 0 !important;
+}
+
+/* Keep nav items consistent when sticky */
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand {
+    padding: 20px 0 !important;
+}
+
+nav.navbar.bootsnav ul.nav > li > a {
+    padding: 25px 20px !important;
+}
+
+/* Optional: smooth dropdown item styling */
+.dropdown-menu > li > a {
+    padding: 10px 20px;
+    display: block;
+    color: #333;
+    white-space: nowrap;
 }
