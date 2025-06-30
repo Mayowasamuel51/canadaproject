@@ -6,16 +6,14 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\PageContoller;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-
-
-
+/// admin login  
 Route::get('/admin/login', [AdminDashboardController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminDashboardController::class, 'login'])->name('admin.login.submit');
 
 
 
 
-
+/// user own 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
@@ -24,9 +22,9 @@ Route::get('register', [AuthenticatedSessionController::class, 'create'])
     ->name('register');
 
 
-Route::get('/user/login', [PageContoller::class, 'login'])->name('user.login');
 
-Route::get('/', [PageContoller::class, 'genreal_home'])->name('home');
+Route::get('/user/login', [PageContoller::class, 'login'])->name('user.login'); // am not using this 
+Route::get('/', [PageContoller::class, 'genreal_home'])->name('home');;
 
 
 Route::get('/dashboard', function () {
