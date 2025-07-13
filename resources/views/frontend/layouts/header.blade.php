@@ -90,7 +90,7 @@
 						<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 							<ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
 								<li class=" scroll active"><a href="#home">home</a></li>
-								<li class="scroll"><a href="#new-arrivals">memembers</a></li>
+								<li class="scroll"><a href="#new-arrivals">meembers</a></li>
 								<li class="scroll"><a href="#feature">events</a></li>
 								<li class="scroll"><a href="#blog">marketplace</a></li>
 								@guest
@@ -123,7 +123,7 @@
 				</nav><!--/nav-->
 				<!-- End Navigation -->
 			</div><!--/.header-area-->
-			<div class="clearfix"></div>
+		
 
 		</div><!-- /.top-area-->
 		<!-- top-area End -->

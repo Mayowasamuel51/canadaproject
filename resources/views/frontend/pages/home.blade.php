@@ -6,7 +6,6 @@
 
 <div>
     <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel"></div>
-
     <div class="carousel-inner" role="listb">
         <!-- .item -->
         <div class="im activ">
@@ -56,6 +55,7 @@
 </div>
 </div>
 
+<div><h1>PIN</h1><input type="text"/></div>
 <!--populer-products start -->
 <section id="populer-products" class="populer-products">
     <div class="container">
@@ -378,3 +378,5 @@
 <!--blog end -->
 
 @endsection
+
+    
