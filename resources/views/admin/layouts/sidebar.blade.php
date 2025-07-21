@@ -37,13 +37,14 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-image"></i>
-        <span>Banners</span>
+        <span>Events</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Banner Options:</h6>
-          <a class="collapse-item">Banners</a>
-          <a class="collapse-item" >Add Banners</a>
+          <h6 class="collapse-header">Events Options:</h6>
+        
+          <a class="collapse-item"  href="{{route('admin.events.index')}}">Events</a>
+          <a class="collapse-item"  >Add Events</a>
         </div>
       </div>
     </li>
@@ -58,13 +59,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse" aria-expanded="true" aria-controls="categoryCollapse">
           <i class="fas fa-sitemap"></i>
-          <span>Category</span>
+          <span>Blog</span>
         </a>
         <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:product</h6>
-            <a class="collapse-item" >Category</a>
-            <a class="collapse-item">Add Category</a>
+            <h6 class="collapse-header">Blogs</h6>
+            <a class="collapse-item" >All Blogs</a>
+            <a class="collapse-item">Add Blog</a>
           </div>
         </div>
     </li>
@@ -78,7 +79,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Product Options:</h6>
             <a class="collapse-item" href="{{route('admin.product.index')}}">Market Place</a>
-            <a class="collapse-item" href="{{route('admin.product.index')}}">Add Products</a>
+            <a class="collapse-item" href="{{route('admin.product.create')}}">Add Products</a>
         
           </div>
         </div>

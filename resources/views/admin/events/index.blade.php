@@ -14,71 +14,7 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        @if(count($products)>0)
-        <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Price</th>
-              
-              <th>Condition</th>
-
-              <th>Photo</th>
-              <th>Status</th>
-
-            </tr>
-          </thead>
-       
-          <tbody>
-
-            @foreach($products as $product)
-          
-                <tr>
-                    <td>{{$product->id}}</td>
-                    <td>{{$product->title}}</td>      
-                    <td>{{$product->	categories}}</td>
-                    <td> {{$product->price}}</td>
-                 
-                    <td>{{$product->condition}}</td>
-                  
-                  
-                    <td>
-                        @if($product->photo)
-                            @php
-                              $photo=explode(',',$product->photo);
-                              // dd($photo);
-                            @endphp
-                             <img src="{{ asset($photo[0]) }}" class="img-fluid zoom" style="max-width:80px" alt="Product Photo">
-                            <!-- <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}"> -->
-                        @else
-                            <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
-                        @endif
-                    </td>
-                    <td>
-                        @if($product->status=='active')
-                            <span class="badge badge-success">{{$product->status}}</span>
-                        @else
-                            <span class="badge badge-warning">{{$product->status}}</span>
-                        @endif
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" >
-                      @csrf
-                      @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-          </tbody>
-        </table>
-       
-        @else
-          <h6 class="text-center">No Products found!!! Please create Product</h6>
-        @endif
+      
       </div>
     </div>
 </div>

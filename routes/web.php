@@ -50,7 +50,13 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['admin.session'])->prefix('/admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    /// product Market place 
     Route::get('/product', [AdminDashboardController::class , 'product'])->name('product.index');
+     Route::get('/product/create', [AdminDashboardController::class , 'productcreate'])->name('product.create');
+      Route::post('/product', [AdminDashboardController::class , 'productStore'])->name('product.store');
+
+      // events 
+          Route::get('/events', [AdminDashboardController::class , 'events'])->name('events.index');
 });
 
 
