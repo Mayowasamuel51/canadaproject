@@ -13,7 +13,6 @@ Route::get('/create-admin', function () {
         'email' => 'admin@mysite.com',
         'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
     ]);
-
     return 'Admin created';
 });
 /// admin login  
