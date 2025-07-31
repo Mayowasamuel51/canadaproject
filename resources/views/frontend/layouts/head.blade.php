@@ -11,9 +11,7 @@
     <!-- title of site -->
     <title>CANADA PROJECT</title>
 
-    <!-- For favicon png -->
-    <link rel="shortcut icon" type="image/icon" href="{{ asset('frontend/logo/favicon.png') }}"/>
-   
+    
     <!-- font-awesome.min.css -->
     <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
 

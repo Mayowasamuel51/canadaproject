@@ -1,6 +1,4 @@
 	<header id="home" class="welcome-hero">
-
-
 		<!-- top-area Start -->
 		<div class="top-area">
 			<div class="header-area">
@@ -89,10 +87,10 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 							<ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-								<li class=" scroll active"><a href="#home">home</a></li>
-								<li class="scroll"><a href="#new-arrivals">meembers</a></li>
-								<li class="scroll"><a href="#feature">events</a></li>
-								<li class="scroll"><a href="#blog">marketplace</a></li>
+								<li class=" scroll active"><a href="#home">Home</a></li>
+								<li class="scroll"><a href="#new-arrivals">Members</a></li>
+								<li class="scroll"><a href="#feature">Events</a></li>
+								<li class="scroll"><a href="#blog">Marketplace</a></li>
 								@guest
 								<li class="scro"><a href="{{ route('login') }}">Login</a></li>
 

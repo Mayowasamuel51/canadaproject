@@ -1,7 +1,5 @@
 @extends('frontend.layouts.master')
 @section('title','CANADA BLOG || HOME PAGE')
-
-
 @section('main-content')
 
 <div>
@@ -55,7 +53,6 @@
 </div>
 </div>
 
-<div><h1>PIN</h1><input type="text"/></div>
 <!--populer-products start -->
 <section id="populer-products" class="populer-products">
     <div class="container">
@@ -378,5 +375,3 @@
 <!--blog end -->
 
 @endsection
-
-    

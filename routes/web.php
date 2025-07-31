@@ -49,13 +49,18 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['admin.session'])->prefix('/admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+
+    Route::get('/category', [AdminDashboardController::class , 'categoryIndex'])->name('category.index');
+    Route::get('/category/create', [AdminDashboardController::class , 'category'])->name('category.create');
+    //   Route::post('/category', [AdminDashboardController::class , 'category'])->name('category.create');
     /// product Market place 
     Route::get('/product', [AdminDashboardController::class , 'product'])->name('product.index');
      Route::get('/product/create', [AdminDashboardController::class , 'productcreate'])->name('product.create');
       Route::post('/product', [AdminDashboardController::class , 'productStore'])->name('product.store');
 
       // events 
-          Route::get('/events', [AdminDashboardController::class , 'events'])->name('events.index');
+    Route::get('/events', [AdminDashboardController::class , 'events'])->name('events.index');
 });
 
 

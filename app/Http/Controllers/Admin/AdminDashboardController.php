@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,6 +14,24 @@ use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 class AdminDashboardController extends Controller{
+
+    public function category(Request $request){
+           $request->validate( [
+            'category' => 'required|string',
+           ]);
+           $category = new Category;
+           $category->category = $request->category;
+           $category->save();
+           return redirect()->back()->with('status', 'Category added successfully!');
+
+    }
+     public function categoryIndex(Request $request){
+         
+           $category = Category::all();
+           return view("admin.category.index")->with('category', $category);
+
+    }
+
     public function product(){
          $products = Product::all();
         return view('admin.product.index')->with('products', $products);
