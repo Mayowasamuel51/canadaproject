@@ -1,9 +1,10 @@
+
 @extends('frontend.layouts.master')
-
 @section('title','CANADA BLOG || HOME PAGE')
-
 @section('main-content')
-<section class="py-5" style="margin-top: 130px;">
+
+
+<section class="py-5" style="margin-top: 30px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -80,3 +81,4 @@
     </div>
 </section>
 @endsection
+    

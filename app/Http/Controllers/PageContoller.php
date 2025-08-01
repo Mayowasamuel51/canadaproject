@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class PageContoller extends Controller
 {
     //
     public function genreal_home(){
-            return view('frontend.pages.home');
+         $product = Product::all();
+            return view('frontend.pages.home', compact('product'));
     }
      public function login(){
             return view('frontend.pages.login');

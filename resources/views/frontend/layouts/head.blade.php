@@ -7,40 +7,45 @@
 
     <!--font-family-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-    
     <!-- title of site -->
     <title>CANADA PROJECT</title>
-
-    
     <!-- font-awesome.min.css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('frontend/css/vendor.css') }}">
     <!-- linear icon css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
 
-    <!-- animate.css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
 
-    <!-- owl.carousel.css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
-    
-    <!-- bootstrap.min.css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- bootsnav -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootsnav.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
-    <!-- style.css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    
-    <!-- responsive.css -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    
-    <!-- HTML5 shim and Respond.js for IE8 support -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
+
+
+  <!-- animate.css -->
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}"> -->
+    <!-- owl.carousel.css -->
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}"> -->
+    <!-- bootstrap.min.css -->
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}"> -->
+    <!-- bootsnav -->
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/bootsnav.css') }}"> -->
+    <!-- style.css -->
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}"> -->
+    <!-- responsive.css -->

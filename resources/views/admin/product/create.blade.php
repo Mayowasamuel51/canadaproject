@@ -1,14 +1,16 @@
 @extends('admin.layouts.master')
 
 @section('main-content')
-
+<style>
+  
+</style>
 <div class="card">
   <h5 class="card-header font-bold">Add Product to Market place </h5>
   <div class="card-body">
     <form method="post" action="{{route('admin.product.store')}}" enctype="multipart/form-data">
       {{csrf_field()}}
       <div class="form-group">
-        <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+        <label for="inputTitle" class="col-form-label font-semibold">Title <span class="text-danger">*</span></label>
         <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{old('title')}}" class="form-control">
         @error('title')
         <span class="text-danger">{{$message}}</span>
@@ -25,16 +27,17 @@
         @enderror
       </div>
 
-
       {{-- {{$categories}} --}}
+    <div class="form-group">
+    <label for="cat_id">Category <span class="text-danger">*</span></label>
+    <select name="cat_id" id="cat_id" class="form-control" required>
+        <option value="">--Select any category--</option>
+        @foreach($category as $cat)
+            <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+        @endforeach
+    </select>
+</div>
 
-      <div class="form-group">
-        <label for="cat_id">Category <span class="text-danger">*</span></label>
-        <select name="cat_id" id="cat_id" class="form-control">
-          <option value="">--Select any category--</option>
-
-        </select>
-      </div>
 
       <div class="form-group d-none" id="child_cat_div">
         <label for="child_cat_id">Sub Category</label>
@@ -70,22 +73,18 @@
       </div>
 
     
-      <div class="form-group">
-        <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
-        <div class="input-group">
-          <!-- <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choose
-                  </a>
-              </span> -->
-          <input required type="file" class="form-control" name="photo" placeholder="address" multiple>
+    
 
-        </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-        @error('photo')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
-      </div>
+      <div class="form-group">
+  <label for="inputPhoto" class="col-form-label">Photos <span class="text-danger">*</span></label>
+  <div class="input-group">
+    <input required type="file" class="form-control" name="photo[]" multiple>
+  </div>
+  @error('photo')
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
+</div>
+
 
       <div class="form-group">
         <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>

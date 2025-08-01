@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\product_images;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,91 +14,178 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
-class AdminDashboardController extends Controller{
 
-    public function category(Request $request){
-           $request->validate( [
-            'category' => 'required|string',
-           ]);
-           $category = new Category;
-           $category->category = $request->category;
-           $category->save();
-           return redirect()->back()->with('status', 'Category added successfully!');
+class AdminDashboardController extends Controller
+{
+    public function edit($id)
+{
+    $product = Product::with('images')->findOrFail($id);
+    return view('admin.product.edit', compact('product'));
+}
 
+public function update(Request $request, $id)
+{
+    $product = Product::findOrFail($id);
+
+    // Update product info
+    $product->update([
+        'title' => $request->title,
+        'description' => $request->description,
+        'price' => $request->price,
+        'condition' => $request->condition,
+        'status' => $request->status,
+    ]);
+
+    // Delete selected images
+    if ($request->has('delete_images')) {
+        foreach ($request->delete_images as $image_id) {
+            $image = product_images::find($image_id);
+            if ($image) {
+                @unlink(public_path($image->image_path));
+                $image->delete();
+            }
+        }
     }
-     public function categoryIndex(Request $request){
-         
-           $category = Category::all();
-           return view("admin.category.index")->with('category', $category);
 
-    }
-
-    public function product(){
-         $products = Product::all();
-        return view('admin.product.index')->with('products', $products);
-    }
-    public function productcreate(){
-          return view('admin.product.create');
-    }
-    public function productStore(Request $request) {
-        // Validate request
-          $request->validate( [
-            'title' => 'required|string',
-            'description' => 'nullable|string',
-            'photo.*' => 'image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048', // Validate multiple image
-            // 'condition' => 'required|in:default,new,hot',
-            'price' => 'required|numeric',
-        ]);
-
-        // this is the production side backend not this 
-        $image_one = $request->photo;
-        if($image_one) {
+    // Upload new images
+    if ($request->hasFile('photo')) {
+        foreach ($request->file('photo') as $image_one) {
             $manager = new ImageManager(new Driver());
             $image_one_name = hexdec(uniqid()) . '.' . strtolower($image_one->getClientOriginalExtension());
             $image = $manager->read($image_one);
-            // $image->resize(150, 150);
-            // $image->
-            $final_image = 'uploads/images/'.$image_one_name;
-            $image->save($final_image);
-            $photoSave1 = $final_image;
-            $rro = 1;
+            $final_image_path = 'uploads/images/' . $image_one_name;
+            $image->save(public_path($final_image_path));
+
+            product_images::create([
+                'product_id' => $product->id,
+                'image_path' => $final_image_path,
+            ]);
         }
-        // $staff->image = $photoSave1;
-        // Prepare data for the product
-        $data = $request->all();
-        $slug = Str::slug($request->title);
-        $count = Product::where('slug', $slug)->count();
-        if ($count > 0) {
-            $slug .= '-' . date('ymdis') . '-' . rand(0, 999);
-        }
-        $data['slug'] = $slug;
-        $data['is_featured'] = $request->input('is_featured', 0);
-        $data['size'] = $request->input('size') ? implode(',', $request->input('size')) : '';
-        $data['photo'] = $photoSave1; // Storing images in 'photo' column
-        // Save product
-        $status = Product::create($data);
-        if ($status) {
-            $request->session()->flash('success', 'Product Successfully added');
-        } else {
-            $request->session()->flash('error', 'Please try again!!');
-        }
-        return redirect()->route('admin.dashboard');
-    
     }
 
-    public function events(){
-          return view('admin.events.index');
+    return redirect()->route('admin.product.index')->with('success', 'Product updated successfully!');
+}
+
+
+
+
+
+
+
+
+
+
+
+    public function category(Request $request)
+    {
+        $request->validate([
+            'category' => 'required|string',
+        ]);
+        $category = new Category;
+        $category->category = $request->category;
+        $category->save();
+        return redirect()->back()->with('status', 'Category added successfully!');
     }
-    public function eventstore(){
-        
+    public function categoryIndex(Request $request)
+    {
+
+        $category = Category::all();
+        return view('admin.category.index', compact('category'));
     }
-    public function index(){
+    public function product()
+    {
+        $products = Product::all();
+        return view('admin.product.index')->with('products', $products);
+    }
+
+    public function show($id)
+{
+    $product = Product::findOrFail($id);
+    return view('admin.product.show', compact('product'));
+}
+
+    public function productcreate()
+    {
+        $category = Category::all();
+        return view('admin.product.create')->with('category', $category);
+    }
+ // make sure this model exists
+
+public function productStore(Request $request)
+{
+    // Validate request
+   // ✅ Step 1: Validate input
+    $request->validate([
+        'title' => 'required|string',
+        'description' => 'nullable|string',
+        'photo.*' => 'image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
+        'price' => 'required|numeric',
+        // Add any other required validations
+    ]);
+
+    // ✅ Step 2: Generate slug
+    $slug = Str::slug($request->title);
+    $count = Product::where('slug', $slug)->count();
+    if ($count > 0) {
+        $slug .= '-' . date('ymdis') . '-' . rand(0, 999);
+    }
+
+    // ✅ Step 3: Prepare main product data (excluding photos for now)
+    $data = [
+        'title' => $request->title,
+        'description' => $request->description,
+        'price' => $request->price,
+        'condition' => $request->condition ?? 'default',
+        'status' => 'inactive',
+        'slug' => $slug,
+        // 'is_featured' => $request->input('is_featured', 0),
+        'size' => is_array($request->size) ? implode(',', $request->size) : $request->size,
+        'photo' => null // placeholder
+    ];
+
+    // ✅ Step 4: Save the product (we need its ID for images)
+    $product = Product::create($data);
+
+    // ✅ Step 5: Handle image uploads
+    if ($request->hasFile('photo')) {
+        $manager = new ImageManager(new Driver());
+        foreach ($request->file('photo') as $index => $imageFile) {
+            $imageName = hexdec(uniqid()) . '.' . strtolower($imageFile->getClientOriginalExtension());
+            $image = $manager->read($imageFile);
+            $finalPath = 'uploads/images/' . $imageName;
+            $image->save(public_path($finalPath));
+
+            // Save main photo to 'photo' column
+            if ($index === 0) {
+                $product->photo = $finalPath;
+                $product->save();
+            }
+
+            // Save image to product_images table
+            product_images::create([
+                'product_id' => $product->id,
+                'image_path' => $finalPath,
+            ]);
+        }
+    }
+
+    // ✅ Step 6: Flash message and redirect
+    if ($product) {
+        $request->session()->flash('success', 'Product successfully added to Market place');
+    } else {
+        $request->session()->flash('error', 'Please try again!!');
+    }
+
+    return redirect()->route('admin.dashboard');
+}
+  
+    public function index()
+    {
         return view('admin.dashboard');
     }
-    public function adminfunction(){
-       
-    }
-    public function showLoginForm(){
+    public function adminfunction() {}
+    public function showLoginForm()
+    {
         return view('admin.login');
     }
     public function login(Request $request)

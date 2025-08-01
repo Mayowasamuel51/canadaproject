@@ -1,377 +1,309 @@
 @extends('frontend.layouts.master')
 @section('title','CANADA BLOG || HOME PAGE')
 @section('main-content')
+ <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <defs>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 19a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm0-4a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm-5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm7-12h-1V2a1 1 0 0 0-2 0v1H8V2a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Zm1 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16Zm0-11H4V6a1 1 0 0 1 1-1h1v1a1 1 0 0 0 2 0V5h8v1a1 1 0 0 0 2 0V5h1a1 1 0 0 1 1 1ZM7 15a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm0 4a1 1 0 1 0-1-1a1 1 0 0 0 1 1Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-right" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M17.92 11.62a1 1 0 0 0-.21-.33l-5-5a1 1 0 0 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 .21-.33a1 1 0 0 0 0-.76Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="category" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M19 5.5h-6.28l-.32-1a3 3 0 0 0-2.84-2H5a3 3 0 0 0-3 3v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-10a3 3 0 0 0-3-3Zm1 13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1h4.56a1 1 0 0 1 .95.68l.54 1.64a1 1 0 0 0 .95.68h7a1 1 0 0 1 1 1Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="calendar" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7h16Zm0-9H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="heart" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M20.16 4.61A6.27 6.27 0 0 0 12 4a6.27 6.27 0 0 0-8.16 9.48l7.45 7.45a1 1 0 0 0 1.42 0l7.45-7.45a6.27 6.27 0 0 0 0-8.87Zm-1.41 7.46L12 18.81l-6.75-6.74a4.28 4.28 0 0 1 3-7.3a4.25 4.25 0 0 1 3 1.25a1 1 0 0 0 1.42 0a4.27 4.27 0 0 1 6 6.05Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="plus" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="minus" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M19 11H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="cart" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19ZM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74a3.007 3.007 0 0 0-2.82-2H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2Zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7ZM16.5 19a1.5 1.5 0 1 0 1.5 1.5a1.5 1.5 0 0 0-1.5-1.5Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="check" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="trash" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1ZM20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2ZM10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="star-outline" viewBox="0 0 15 15">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M7.5 9.804L5.337 11l.413-2.533L4 6.674l2.418-.37L7.5 4l1.082 2.304l2.418.37l-1.75 1.793L9.663 11L7.5 9.804Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="star-solid" viewBox="0 0 15 15">
+          <path fill="currentColor" d="M7.953 3.788a.5.5 0 0 0-.906 0L6.08 5.85l-2.154.33a.5.5 0 0 0-.283.843l1.574 1.613l-.373 2.284a.5.5 0 0 0 .736.518l1.92-1.063l1.921 1.063a.5.5 0 0 0 .736-.519l-.373-2.283l1.574-1.613a.5.5 0 0 0-.283-.844L8.921 5.85l-.968-2.062Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="search" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="user" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 15 15">
+          <path fill="currentColor" d="M7.953 3.788a.5.5 0 0 0-.906 0L6.08 5.85l-2.154.33a.5.5 0 0 0-.283.843l1.574 1.613l-.373 2.284a.5.5 0 0 0 .736.518l1.92-1.063l1.921 1.063a.5.5 0 0 0 .736-.519l-.373-2.283l1.574-1.613a.5.5 0 0 0-.283-.844L8.921 5.85l-.968-2.062Z"/>
+        </symbol>
+      </defs>
+    </svg>
+   <div class="preloader-wrapper">
+      <div class="preloader">
+      </div>
+    </div>
+    <section class="py-3" style="background-image: url('images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
 
-<div>
-    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel"></div>
-    <div class="carousel-inner" role="listb">
-        <!-- .item -->
-        <div class="im activ">
-            <div class="single-slide- slie">
-                <div class="container">
-                    <div class="welcome-hero-content">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <div class="single-welcome-hero">
-                                    <div class="welcome-hero-txt">
-                                        <h4> Welcome to Our Community!</h4>
-                                        <!-- <h2>cloth covered accent chair</h2> -->
-                                        <p>
-                                            We are more than just a community — we're a movement of learners, creators, and change-makers. Whether you're here to read insightful blog posts, attend exciting Zoom events, sell or buy items in our mini marketplace, or grow through our educational platform — you're in the right place.
-                                        </p>
-                                        <div class="packages-price">
-                                            <p>
-                                                <!-- $ 399.00 -->
-                                                <!-- <del>$ 499.00</del> -->
-                                            </p>
-                                        </div>
-                                        <button class="btn-cart welcome-add-cart" onclick="window.location.href='#'">
-                                            Canada Events
-                                        </button>
-                                        <button class="btn-cart welcome-add-cart welcome-more-info" onclick="window.location.href='#'">
-                                            Become a member
-                                        </button>
-                                    </div><!--/.welcome-hero-txt-->
-                                </div><!--/.single-welcome-hero-->
-                            </div><!--/.col-->
-                            <div class="col-sm-5">
-                                <div class="single-welcome-hero">
-                                    <div class="welcome-hero-img">
-                                        <!-- <img src="assets/images/slider/slider1.png" alt="slider image"> -->
-                                    </div><!--/.welcome-hero-txt-->
-                                </div><!--/.single-welcome-hero-->
-                            </div><!--/.col-->
-                        </div><!--/.row-->
-                    </div><!--/.welcome-hero-content-->
-                </div><!-- /.container-->
-            </div><!-- /.single-slide-item-->
+            <div class="banner-blocks">
+            
+              <div class="banner-ad large bg-info block-1">
 
-        </div><!-- /.item .active-->
+                <div class="swiper main-swiper">
+                  <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                      <div class="row banner-content p-5">
+                        <div class="content-wrapper col-md-7">
+                          <div class="categories my-3">100% natural</div>
+                          <h3 class="display-4">Fresh Smoothie & Summer Juice</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop Now</a>
+                        </div>
+                        <div class="img-wrapper col-md-5">
+                          <img src="images/product-thumb-1.png" class="img-fluid">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                      <div class="row banner-content p-5">
+                        <div class="content-wrapper col-md-7">
+                          <div class="categories mb-3 pb-3">100% natural</div>
+                          <h3 class="banner-title">Fresh Smoothie & Summer Juice</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                        </div>
+                        <div class="img-wrapper col-md-5">
+                          <img src="images/product-thumb-1.png" class="img-fluid">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                      <div class="row banner-content p-5">
+                        <div class="content-wrapper col-md-7">
+                          <div class="categories mb-3 pb-3">100% natural</div>
+                          <h3 class="banner-title">Heinz Tomato Ketchup</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                        </div>
+                        <div class="img-wrapper col-md-5">
+                          <img src="images/product-thumb-2.png" class="img-fluid">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="swiper-pagination"></div>
 
+                </div>
+              </div>
+              
+              <div class="banner-ad bg-success-subtle block-2" style="background:url('images/ad-image-1.png') no-repeat;background-position: right bottom">
+                <div class="row banner-content p-5">
+
+                  <div class="content-wrapper col-md-7">
+                    <div class="categories sale mb-3 pb-3">20% off</div>
+                    <h3 class="banner-title">Fruits & Vegetables</h3>
+                    <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="banner-ad bg-danger block-3" style="background:url('images/ad-image-2.png') no-repeat;background-position: right bottom">
+                <div class="row banner-content p-5">
+
+                  <div class="content-wrapper col-md-7">
+                    <div class="categories sale mb-3 pb-3">15% off</div>
+                    <h3 class="item-title">Baked Products</h3>
+                    <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+            <!-- / Banner Blocks -->
+              
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section class="py-5 overflow-hidden">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="section-header d-flex flex-wrap justify-content-between mb-5">
+              <h2 class="section-title">Category</h2>
+
+              <div class="d-flex align-items-center">
+                <a href="#" class="btn-link text-decoration-none">View All Categories →</a>
+                <div class="swiper-buttons">
+                  <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
+                  <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="category-carousel swiper">
+              <div class="swiper-wrapper">
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-bread-baguette.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Breads & Sweets</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-soft-drinks-bottle.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-wine-glass-bottle.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-animal-products-drumsticks.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-bread-herb-flour.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                <a href="index.html" class="nav-link category-item swiper-slide">
+                  <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
+                  <h3 class="category-title">Fruits & Veges</h3>
+                </a>
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="py-5">
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="bootstrap-tabs product-tabs">
+              <div class="tabs-header d-flex justify-content-between border-bottom my-5">
+                <h3>Trending Products</h3>
+                <nav>
+                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a href="#" class="nav-link text-uppercase fs-6 active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all">All</a>
+                    <a href="#" class="nav-link text-uppercase fs-6" id="nav-fruits-tab" data-bs-toggle="tab" data-bs-target="#nav-fruits">Fruits & Veges</a>
+                    <a href="#" class="nav-link text-uppercase fs-6" id="nav-juices-tab" data-bs-toggle="tab" data-bs-target="#nav-juices">Juices</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+<div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+              
+@foreach($product as $item)
+<div class="col mb-4">
+  <div class="product-item">
+    <a href="#" class="btn-wishlist">
+      <svg width="24" height="24"><use xlink:href="#heart"></use></svg>
+    </a>
+    <figure>
+   <a href="#" title="{{ $item->title }}">
+  <img src="{{ asset($item->photo) }}" alt="{{ $item->title }}" class="tab-image"  width="230" height="200">
+</a>
+
+
+    </figure>
+    <h3>{{ $item->title }}</h3>
+    <span class="qty">{{ $item->size ?? '1 Unit' }}</span>
+    <span class="rating">
+      <svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 
+      {{ $item->rating ?? '4.5' }}
+    </span>
+    <span class="price">${{ number_format($item->price, 2) }}</span>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="input-group product-qty">
+        <span class="input-group-btn">
+          <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+            <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+          </button>
+        </span>
+        <input type="text" name="quantity" class="form-control input-number" value="1">
+        <span class="input-group-btn">
+          <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+            <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+          </button>
+        </span>
+      </div>
+      <a href="" class="nav-link">Add to Cart 
+        <iconify-icon icon="uil:shopping-cart"></iconify-icon>
+      </a>
 
     </div>
+  </div>
 </div>
-</div>
+@endforeach
+</div>div>
+                  <!-- / product-grid -->
+                  
+                </div>
 
-<!--populer-products start -->
-<section id="populer-products" class="populer-products">
-    <div class="container">
-        <div class="populer-products-content">
-            <div>
-                <h2 class="font-semibold">LATEST EVENTS </h2>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <!-- <div class="single-populer-products">
-								<div class="single-populer-product-img mt40">
-									<img src="assets/images/populer-products/p1.png" alt="populer-products images">
-								</div>
-								<h2><a href="#">arm chair</a></h2>
-								<div class="single-populer-products-para">
-									<p>Nemo enim ipsam voluptatem quia volu ptas sit asperna aut odit aut fugit.</p>
-								</div>
-							</div> -->
-                </div>
-                <div class="col-md-6">
-                    <div class="single-populer-products">
-                        <div class="single-inner-populer-products">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-12">
-                                    <div class="single-inner-populer-product-img">
-                                        <img src="assets/images/populer-products/p2.png" alt="populer-products images">
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-sm-12">
-                                    <div class="single-inner-populer-product-txt">
-                                        <h2>
-                                            <a href="#">
-                                                latest designed stool <span>and</span> chair
-                                            </a>
-                                        </h2>
-                                        <p>
-                                            Edi ut perspiciatis unde omnis iste natusina error sit voluptatem accusantium doloret mque laudantium, totam rem aperiam.
-                                        </p>
-                                        <div class="populer-products-price">
-                                            <h4>Sales Start from <span>$99.00</span></h4>
-                                        </div>
-                                        <button class="btn-cart welcome-add-cart populer-products-btn" onclick="window.location.href='#'">
-                                            discover more
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <!-- <div class="single-populer-products">
-								<div class="single-populer-products">
-									<div class="single-populer-product-img">
-										<img src="assets/images/populer-products/p3.png" alt="populer-products images">
-									</div>
-									<h2><a href="#">hanging lamp</a></h2>
-									<div class="single-populer-products-para">
-										<p>Nemo enim ipsam voluptatem quia volu ptas sit asperna aut odit aut fugit.</p>
-									</div>
-								</div>
-							</div> -->
-                </div>
-            </div>
+
+          </div>
         </div>
-    </div><!--/.container-->
+      </div>
+    </section>
 
-</section><!--/.populer-products-->
-
-
-
-<section id="new-arrivals" class="new-arrivals">
-    <div class="container">
-        <div class="section-header">
-            <h2>Market place</h2>
-        </div><!--/.section-header-->
-        <div class="new-arrivals-content">
-            <div class="row">
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals1.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="sale bg-1">
-                                <p>sale</p>
-                            </div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">wooden chair</a></h4>
-                        <p class="arrival-product-price">$65.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals2.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="sale bg-2">
-                                <p>sale</p>
-                            </div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">single armchair</a></h4>
-                        <p class="arrival-product-price">$80.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals3.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">wooden armchair</a></h4>
-                        <p class="arrival-product-price">$40.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals4.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="sale bg-1">
-                                <p>sale</p>
-                            </div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">stylish chair</a></h4>
-                        <p class="arrival-product-price">$100.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals5.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">modern chair</a></h4>
-                        <p class="arrival-product-price">$120.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals6.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="sale bg-1">
-                                <p>sale</p>
-                            </div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">mapple wood dinning table</a></h4>
-                        <p class="arrival-product-price">$140.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals7.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="sale bg-2">
-                                <p>sale</p>
-                            </div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">arm chair</a></h4>
-                        <p class="arrival-product-price">$90.00</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <div class="single-new-arrival-bg">
-                            <img src="assets/images/collection/arrivals8.png" alt="new-arrivals images">
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            <div class="new-arrival-cart">
-                                <p>
-                                    <span class="lnr lnr-cart"></span>
-                                    <a href="#">add <span>to </span> cart</a>
-                                </p>
-                                <p class="arrival-review pull-right">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-frame-expand"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <h4><a href="#">wooden bed</a></h4>
-                        <p class="arrival-product-price">$140.00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/.container-->
-
-</section>
-
-
-<!--blog start -->
-<section id="blog" class="blog">
-    <div class="container">
-        <div class="section-header">
-            <h2>latest blog</h2>
-        </div><!--/.section-header-->
-        <div class="blog-content">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <img src="assets/images/blog/b1.jpg" alt="blog image">
-                            <div class="single-blog-img-overlay"></div>
-                        </div>
-                        <div class="single-blog-txt">
-                            <h2><a href="#">Why Brands are Looking at Local Language</a></h2>
-                            <h3>By <a href="#">Robert Norby</a> / 18th March 2018</h3>
-                            <p>
-                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt....
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-4">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <img src="assets/images/blog/b2.jpg" alt="blog image">
-                            <div class="single-blog-img-overlay"></div>
-                        </div>
-                        <div class="single-blog-txt">
-                            <h2><a href="#">Why Brands are Looking at Local Language</a></h2>
-                            <h3>By <a href="#">Robert Norby</a> / 18th March 2018</h3>
-                            <p>
-                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt....
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="single-blog">
-                        <div class="single-blog-img">
-                            <img src="assets/images/blog/b3.jpg" alt="blog image">
-                            <div class="single-blog-img-overlay"></div>
-                        </div>
-                        <div class="single-blog-txt">
-                            <h2><a href="#">Why Brands are Looking at Local Language</a></h2>
-                            <h3>By <a href="#">Robert Norby</a> / 18th March 2018</h3>
-                            <p>
-                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt....
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/.container-->
-
-</section><!--/.blog-->
-<!--blog end -->
 
 @endsection

@@ -27,53 +27,44 @@
 
               <th>Photo</th>
               <th>Status</th>
+              <th>Actions</th>
 
             </tr>
           </thead>
        
-          <tbody>
+         <tbody>
+@foreach($products as $product)
+    <tr>
+    <td><a href="{{ route('admin.product.show', $product->id) }}">{{ $product->id }}</a></td>
+    <td><a href="{{ route('admin.product.show', $product->id) }}">{{ $product->title }}</a></td>
+    <td>{{ $product->categories }}</td>
+    <td>{{ $product->price }}</td>
+    <td>{{ $product->condition }}</td>
+    <td>
+        @if($product->photo)
+            @php
+              $photo = explode(',', $product->photo);
+            @endphp
+            <img src="{{ asset($photo[0]) }}" class="img-fluid zoom" style="max-width:80px" alt="Product Photo">
+        @else
+            <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid" style="max-width:80px" alt="avatar.png">
+        @endif
+    </td>
+    <td>
+        @if($product->status == 'active')
+            <span class="badge badge-success">{{ $product->status }}</span>
+        @else
+            <span class="badge badge-warning">{{ $product->status }}</span>
+        @endif
+    </td>
+      <td>
+            <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-sm btn-primary">Edit</a>
+        </td>
+</tr>
 
-            @foreach($products as $product)
-          
-                <tr>
-                    <td>{{$product->id}}</td>
-                    <td>{{$product->title}}</td>      
-                    <td>{{$product->	categories}}</td>
-                    <td> {{$product->price}}</td>
-                 
-                    <td>{{$product->condition}}</td>
-                  
-                  
-                    <td>
-                        @if($product->photo)
-                            @php
-                              $photo=explode(',',$product->photo);
-                              // dd($photo);
-                            @endphp
-                             <img src="{{ asset($photo[0]) }}" class="img-fluid zoom" style="max-width:80px" alt="Product Photo">
-                            <!-- <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}"> -->
-                        @else
-                            <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
-                        @endif
-                    </td>
-                    <td>
-                        @if($product->status=='active')
-                            <span class="badge badge-success">{{$product->status}}</span>
-                        @else
-                            <span class="badge badge-warning">{{$product->status}}</span>
-                        @endif
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" >
-                      @csrf
-                      @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-          </tbody>
+@endforeach
+</tbody>
+
         </table>
        
         @else
@@ -88,6 +79,12 @@
   <link href="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
   <style>
+    .clickable-row {
+    cursor: pointer;
+}
+.clickable-row:hover {
+    background-color: #f1f1f1;
+}
       div.dataTables_wrapper div.dataTables_paginate{
           display: none;
       }
@@ -111,6 +108,19 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll(".clickable-row");
+    rows.forEach(function(row) {
+      row.addEventListener("click", function() {
+        const url = this.getAttribute("data-href");
+        if (url) {
+          window.location.href = url;
+        }
+      });
+    });
+  });
+    </script>
+  <script>
 
       $('#product-dataTable').DataTable( {
         "scrollX": false,
@@ -127,6 +137,17 @@
         function deleteData(id){
 
         }
+      document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll(".clickable-row");
+    rows.forEach(function(row) {
+      row.addEventListener("click", function() {
+        const url = this.getAttribute("data-href");
+        if (url) {
+          window.location.href = url;
+        }
+      });
+    });
+  });
   </script>
   <script>
       $(document).ready(function(){

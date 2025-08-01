@@ -1,16 +1,18 @@
 @extends('admin.layouts.master')
 
 @section('main-content')
-
+<style>
+  
+</style>
 <div class="card">
-  <h5 class="card-header font-bold">Add Product to Market place </h5>
+  <h5 class="card-header font-bold">Add An Events</h5>
   <div class="card-body">
-    <form method="post" action="{{route('admin.product.store')}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('admin.events.store')}}" enctype="multipart/form-data">
       {{csrf_field()}}
       <div class="form-group">
-        <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-        <input id="inputTitle" type="text" name="title" placeholder="Enter title" value="{{old('title')}}" class="form-control">
-        @error('title')
+        <label for="inputTitle" class="col-form-label font-semibold">Title <span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="name" placeholder="Enter Event  title" value="{{old('name')}}" class="form-control">
+        @error('name')
         <span class="text-danger">{{$message}}</span>
         @enderror
       </div>
@@ -18,85 +20,34 @@
 
 
       <div class="form-group">
-        <label for="description" class="col-form-label">Description</label>
-        <textarea class="form-control" id="description"  placeholder="description of product" name="description">{{old('description')}}</textarea>
-        @error('description')
+        <label for="description" class="col-form-label">Event infomation </label>
+        <textarea class="form-control" id="description"  placeholder="event infomation" name="eventinfo">{{old('eventinfo')}}</textarea>
+        @error('eventinfo')
         <span class="text-danger">{{$message}}</span>
         @enderror
       </div>
-
 
       {{-- {{$categories}} --}}
+    <div class="form-group">
+    <label for="cat_id">Event Category  <span class="text-danger">*</span></label>
+    <select name="cat_id" id="cat_id" class="form-control" required>
+        <option value="">--Select any category--</option>
+        @foreach($category as $cat)
+            <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+        @endforeach
+    </select>
+</div>
 
       <div class="form-group">
-        <label for="cat_id">Category <span class="text-danger">*</span></label>
-        <select name="cat_id" id="cat_id" class="form-control">
-          <option value="">--Select any category--</option>
-
-        </select>
-      </div>
-
-      <div class="form-group d-none" id="child_cat_div">
-        <label for="child_cat_id">Sub Category</label>
-        <select name="child_cat_id" id="child_cat_id" class="form-control">
-          <option value="">--Select any category--</option>
-          {{-- @foreach($parent_cats as $key=>$parent_cat)
-                  <option value='{{$parent_cat->id}}'>{{$parent_cat->title}}</option>
-          @endforeach --}}
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="price" class="col-form-label">Price(NRS) <span class="text-danger">*</span></label>
-        <input id="price" type="number" name="price" placeholder="Enter price" value="{{old('price')}}" class="form-control">
-        @error('price')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
-      </div>
-
+  <label for="inputPhoto" class="col-form-label">Photos <span class="text-danger">*</span></label>
+  <div class="input-group">
+    <input required type="file" class="form-control" name="photo" >
+  </div>
+  @error('photo')
+    <span class="text-danger">{{ $message }}</span>
+  @enderror
+</div>
      
-     
-
-    
-
-      <div class="form-group">
-        <label for="condition">Condition</label>
-        <select name="condition" class="form-control">
-          <option value="">--Select Condition--</option>
-          <option value="default">Default</option>
-          <option value="new">New</option>
-          <option value="hot">Hot</option>
-        </select>
-      </div>
-
-    
-      <div class="form-group">
-        <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
-        <div class="input-group">
-          <!-- <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choose
-                  </a>
-              </span> -->
-          <input required type="file" class="form-control" name="photo" placeholder="address" multiple>
-
-        </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-        @error('photo')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
-      </div>
-
-      <div class="form-group">
-        <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
-        <select name="status" class="form-control">
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-        </select>
-        @error('status')
-        <span class="text-danger">{{$message}}</span>
-        @enderror
-      </div>
       <div class="form-group mb-3">
         <button type="reset" class="btn btn-warning">Reset</button>
         <button class="btn btn-success" type="submit">Submit</button>
