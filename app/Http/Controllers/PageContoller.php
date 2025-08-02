@@ -15,6 +15,16 @@ use Illuminate\Http\Request;
 class PageContoller extends Controller
 {
     //
+    public function events(){
+          $product = Product::all();
+        $category =  Category::all();
+        $events = Event::all();
+         return view('frontend.pages.events', compact('product', 'category', 'events'));
+    }
+
+
+
+
     public function genreal_home()
     {
         $product = Product::all();
@@ -24,8 +34,8 @@ class PageContoller extends Controller
     }
     public function login()
     {
-         $product = Product::all();
-          $category =  Category::all();
+        $product = Product::all();
+        $category =  Category::all();
         return view('frontend.pages.login', compact('product', 'category'));
     }
     public function loginSubmit(Request $request)

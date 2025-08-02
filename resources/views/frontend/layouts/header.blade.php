@@ -202,7 +202,7 @@
                     <li><a href="index.html" class="dropdown-item">Single Product </a></li>
                     <li><a href="index.html" class="dropdown-item">Cart </a></li>
                     <li><a href="index.html" class="dropdown-item">Checkout </a></li>
-                    <li><a href="index.html" class="dropdown-item">Blog </a></li>
+                    <!-- <li><a href="index.html" class="dropdown-item">Blog </a></li> -->
                     <li><a href="index.html" class="dropdown-item">Single Post </a></li>
                     <li><a href="index.html" class="dropdown-item">Styles </a></li>
                     <li><a href="index.html" class="dropdown-item">Contact </a></li>
@@ -216,10 +216,11 @@
                 </li>
 
                 <li class="nav-item active">
-                  <a href="#women" class="nav-link">Events</a>
+                  <a href="{{ route('events') }}" class="nav-link">Events</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a href="#men" class="nav-link">Blogs</a>
+                  <!-- <a href="#men" class="nav-link">Blogs</a> -->
+
                 </li>
                 <li class="nav-item">
                   <a href="#kids" class="nav-link">MarketPlace</a>
