@@ -105,7 +105,7 @@
 
     {{-- Guest Links --}}
     @guest
-    <li><a href="{{ route('login') }}" class="dropdown-item">Login</a></li>
+    <li><a href="{{ route('login') }}" class="dropdown-item p-2">Login</a></li>
     <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li>
     @endguest
 
@@ -150,7 +150,7 @@
     <button class="border-0 bg-transparent d-flex flex-column gap-1 lh-1" type="button"
             data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
       <span class="fs-6 text-muted dropdown-toggle">Your Cart</span>
-      <span class="cart-total fs-5 fw-bold">$1290.00</span>
+      <!-- <span class="cart-total fs-5 fw-bold">$1290.00</span> -->
     </button>
   </div>
 
@@ -185,7 +185,7 @@
                   <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                   <ul class="dropdown-menu" aria-labelledby="pages">
                     @guest
-                    <li><a href="{{ route('login') }}" class="dropdown-item">Login</a></li>
+                    <li><a href="{{ route('login') }}" class="dropdown-item p-2">Login</a></li>
                     <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li>
                     @endguest
                     @auth
