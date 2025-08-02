@@ -34,6 +34,7 @@ Route::get('register', [AuthenticatedSessionController::class, 'create'])
 // General pages 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/events', [PageContoller::class, 'events'])->name('events');
+Route::get('/marketPlace', [PageContoller::class, 'marketPlace'])->name('marketPlace');
 
 
 

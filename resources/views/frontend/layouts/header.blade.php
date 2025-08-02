@@ -223,7 +223,7 @@
 
                 </li>
                 <li class="nav-item">
-                  <a href="#kids" class="nav-link">MarketPlace</a>
+                  <a href="{{ route('marketPlace') }}" class="nav-link">MarketPlace</a>
                 </li>
 
               </ul>
