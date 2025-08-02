@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Event;
 use App\Models\Product;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Contracts\Session\Session;
@@ -13,14 +15,20 @@ use Illuminate\Http\Request;
 class PageContoller extends Controller
 {
     //
-    public function genreal_home(){
+    public function genreal_home()
+    {
+        $product = Product::all();
+        $category =  Category::all();
+        $events = Event::all();
+        return view('frontend.pages.home', compact('product', 'category', 'events'));
+    }
+    public function login()
+    {
          $product = Product::all();
-            return view('frontend.pages.home', compact('product'));
+          $category =  Category::all();
+        return view('frontend.pages.login', compact('product', 'category'));
     }
-     public function login(){
-            return view('frontend.pages.login');
-    }
-      public function loginSubmit(Request $request)
+    public function loginSubmit(Request $request)
     {
         $data = $request->all();
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'status' => 'active'])) {
@@ -32,7 +40,7 @@ class PageContoller extends Controller
             return redirect()->back();
         }
     }
-      public function registerSubmit(Request $request)
+    public function registerSubmit(Request $request)
     {
         // return $request->all();
         $this->validate($request, [

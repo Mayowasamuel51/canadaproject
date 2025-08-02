@@ -5,12 +5,30 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Eventscat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 class EventsController extends Controller
 {
+
+    public function category(Request $request)
+    {
+        $request->validate([
+            'brand' => 'required|string',
+        ]);
+        $category = new Eventscat;
+        $category->eventcat = $request->brand;
+        $category->save();
+        return redirect()->back()->with('status', 'Event Category  added successfully!');
+    }
+    public function categoryIndex(Request $request){
+        $brand = Eventscat::all();
+        return view('admin.category.index', compact('brand'));
+    }
+
+
     public function edit($id)
 {
     $product = Event::with('images')->findOrFail($id);
@@ -65,7 +83,8 @@ public function update(Request $request, $id){
      public function eventscreate()
     {
         $category = Category::all();
-        return view('admin.events.create')->with('category', $category);
+        $eventcat = Eventscat::all();
+        return view('admin.events.create')->with( 'eventcat', $eventcat);
     }
 
     public function eventstore(Request $request)
@@ -89,6 +108,7 @@ public function update(Request $request, $id){
         'name' => $request->name,
         'eventinfo' => $request->eventinfo,
         'slug' => $slug,
+        'category'=>$request->cat_id,
         'photo' => null,
     ];
 

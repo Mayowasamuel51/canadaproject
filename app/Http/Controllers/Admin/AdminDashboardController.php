@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\Eventscat;
 use App\Models\Product;
 use App\Models\product_images;
 use App\Models\User;
@@ -89,8 +90,9 @@ public function update(Request $request, $id)
     public function categoryIndex(Request $request)
     {
 
+          $brands = Eventscat::all();
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        return view('admin.category.index', compact('category','brands'));
     }
     public function product()
     {

@@ -21,15 +21,6 @@
       </div>
     </form>
 
-
-
-
-
-
-
-
-
-
 @endsection
 
 @push('styles')

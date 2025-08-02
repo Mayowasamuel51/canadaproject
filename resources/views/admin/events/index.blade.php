@@ -32,8 +32,7 @@
         <tbody>
           @foreach($events as $event)
           <tr>
-            <td><a href="{{ route('admin.events.show', $event->id) }}">{{ $event->id}}</a></td>
-            <td><a href="{{ route('admin.product.show', $event->id) }}">{{ $event->name }}</a></td>
+           
             <td>{{ $event->category }}</td>
             <td>{{ $event->eventinfo}}</td>
             <td>
@@ -174,3 +173,5 @@
   })
 </script>
 @endpush
+
+ 

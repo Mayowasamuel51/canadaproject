@@ -1,63 +1,94 @@
 @extends('admin.layouts.master')
 
 @section('main-content')
-
-<div class="card">
-    <h5 class="card-header font-bold">Add A Categories to all product</h5>
-    @if (session('status'))
+<div class="card mb-4">
+    <h5 class="card-header font-bold">Add a Category</h5>
+    @if (session('category_status'))
     <div class="alert alert-success">
-        {{ session('status') }}
+        {{ session('category_status') }}
     </div>
-@endif
-
-    <div class="card-body">
-        <form method="post" action="{{route('admin.category.create')}}" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="form-group">
-                <label for="inputTitle" class="col-form-label">Category Name <span class="text-danger">*</span></label>
-                <input id="inputTitle" type="text" name="category" placeholder="Enter title" value="{{old('category')}}" class="form-control">
-                @error('category')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-            <div class="form-group mb-3">
-                <button class="btn btn-success" type="submit">Submit</button>
-            </div>
-        </form>
-
-
-        <div class="container mt-4">
-    <h2>All Categories will in the Market place section</h2>
-
-    @if (session('status'))
-        <div class="alert alert-success">{{ session('status') }}</div>
     @endif
 
-    <table class="table table-bordered mt-3">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Category Name</th>
-            </tr>
-        </thead>
-     <tbody>
-        @forelse ($category as $index => $cat)
-            <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $cat->category }}</td>
-                <td>{{ $cat->created_at->format('F j, Y g:i A') }}</td>
-                {{-- Example format: July 31, 2025 10:15 AM --}}
-            </tr>
-        @empty
-            <tr>
-                <td colspan="3" class="text-center">No categories found.</td>
-            </tr>
-        @endforelse
-    </tbody>
-    </table>
-</div>
+    <div class="card-body">
+        <form method="POST" action="{{ route('admin.category.create') }}">
+            @csrf
+            <div class="form-group">
+                <label>Category Name <span class="text-danger">*</span></label>
+                <input type="text" name="category" class="form-control" placeholder="Enter Category">
+                @error('category')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-success mt-2">Submit Category</button>
+        </form>
     </div>
 </div>
+
+<div class="card mb-4">
+    <h5 class="card-header font-bold">Add a Event Category</h5>
+    @if (session('brand_status'))
+    <div class="alert alert-success">
+        {{ session('brand_status') }}
+    </div>
+    @endif
+
+    <div class="card-body">
+        <form method="POST" action="{{ route('admin.brand.create') }}">
+            @csrf
+            <div class="form-group">
+                <label>Event  Name <span class="text-danger">*</span></label>
+                <input type="text" name="brand" class="form-control" placeholder="Enter Event category">
+                @error('brand')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit Event Category </button>
+        </form>
+    </div>
+</div>
+
+{{-- CATEGORY TABLE --}}
+<div class="container mt-4">
+    <h4>All Categories</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>#</th><th>Name</th><th>Date Created</th></tr>
+        </thead>
+        <tbody>
+            @forelse ($category as $i => $cat)
+            <tr>
+                <td>{{ $i + 1 }}</td>
+                <td>{{ $cat->category }}</td>
+                <td>{{ $cat->created_at->format('F j, Y g:i A') }}</td>
+            </tr>
+            @empty
+            <tr><td colspan="3" class="text-center">No categories yet.</td></tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
+
+{{-- BRAND TABLE --}}
+<div class="container mt-4">
+    <h4>All Event Categories</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>#</th><th>Name</th><th>Date Created</th></tr>
+        </thead>
+        <tbody>
+            @forelse ($brands as $i => $brand)
+            <tr>
+                <td>{{ $i + 1 }}</td>
+                <td>{{ $brand->eventcat }}</td>
+                <td>{{ $brand->created_at->format('F j, Y g:i A') }}</td>
+            </tr>
+            @empty
+           
+
+ <tr><td colspan="3" class="text-center">No brands yet.</td></tr>
+            @endforelse
+        </tbody>
+        </table>
 
 @endsection
 

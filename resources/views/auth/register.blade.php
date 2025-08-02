@@ -4,13 +4,13 @@
 @section('main-content')
 
 
-<section class="py-5" style="margin-top: 30px;">
+<section class="py-5" style="margin-top: 3px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
 
                 <div class="card shadow-sm">
-                    <div class="card-header bg-success text-white">
+                    <div class="card-header font-bold ">
                         <h2 class="mb-0">Register</h2>
                     </div>
 

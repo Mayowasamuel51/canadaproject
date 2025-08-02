@@ -32,8 +32,8 @@
     <label for="cat_id">Event Category  <span class="text-danger">*</span></label>
     <select name="cat_id" id="cat_id" class="form-control" required>
         <option value="">--Select any category--</option>
-        @foreach($category as $cat)
-            <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+        @foreach($eventcat  as $cat)
+            <option value="{{ $cat->id }}">{{ $cat->eventcat }}</option>
         @endforeach
     </select>
 </div>

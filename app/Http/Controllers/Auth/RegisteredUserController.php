@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +21,10 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+
+          $product = Product::all();
+        $category =  Category::all();
+        return view('auth.register', compact('product', 'category'));
     }
 
     /**
@@ -41,6 +46,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+           $product = Product::all();
+        $category =  Category::all();
         event(new Registered($user));
 
         Auth::login($user);

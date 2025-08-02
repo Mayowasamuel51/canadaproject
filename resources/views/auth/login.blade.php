@@ -3,7 +3,7 @@
 @section('main-content')
 
 
-<section class="py-5 main" style="margin-top: 30px;">
+<section class="py-5 main" style="margin-top: 10px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -17,8 +17,8 @@
 
                 {{-- Login Card --}}
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h2 class="mb-0">Logins</h2>
+                    <div class="card-headertext-white">
+                        <h2 class="mb-0 font-bold">Login</h2>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
