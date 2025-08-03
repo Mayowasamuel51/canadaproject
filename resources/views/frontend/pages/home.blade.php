@@ -50,37 +50,32 @@
     </symbol>
   </defs>
 </svg>
-<div class="preloader-wrapper">
-  <div class="preloader">
-  </div>
-</div>
+
 <section class="py-3" style="background-image: url('images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-
-        <div class="banner-blocks">
-
+        <div class="b">
           <div class="banner-ad large bg-info block-1">
-
             <div class="swiper main-swiper">
               <div class="swiper-wrapper">
-
                 <div class="swiper-slide">
                   <div class="row banner-content p-5">
-                    <div class="content-wrapper col-md-7">
-                      <div class="categories my-3">100% natural</div>
-                      <h3 class="display-4">Fresh Smoothie & Summer Juice from mayowa</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
-                      <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop Now</a>
-                    </div>
-                    <div class="img-wrapper col-md-5">
+                    <div class="">
+                        <!-- <div class="img-wrapper col-md-5">
                       <img src="images/product-thumb-1.png" class="img-fluid">
+                    </div> -->
+                      <!-- <div class="categories my-3">100% natural</div> -->
+                      <h2 class="display-4">We're Here to Serve You!</h2>
+                      <p>UPU(UK) is a registered branch of UPU.  We are open to all sons and daughters of Urhobo to register to become a member. As a community-based organisation, we have an aspiration to acquire charity status while engaging in initiatives to promote the welfare on the Urhobo community in the United Kingdom. Our primary focus is to create a space where members can enjoy togetherness..</p>
+                      <a href="{{ route("events") }}" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Events</a>
+                        <a href="{{ route("login") }}" class="ml-2 btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Become a Member</a>
                     </div>
+                  
                   </div>
                 </div>
 
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                   <div class="row banner-content p-5">
                     <div class="content-wrapper col-md-7">
                       <div class="categories mb-3 pb-3">100% natural</div>
@@ -92,9 +87,9 @@
                       <img src="images/product-thumb-1.png" class="img-fluid">
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                   <div class="row banner-content p-5">
                     <div class="content-wrapper col-md-7">
                       <div class="categories mb-3 pb-3">100% natural</div>
@@ -106,16 +101,16 @@
                       <img src="images/product-thumb-2.png" class="img-fluid">
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
 
-              <div class="swiper-pagination"></div>
+              <!-- <div class="swiper-pagination"></div> -->
 
             </div>
           </div>
 
-          <div class="banner-ad bg-success-subtle block-2" style="background:url('images/ad-image-1.png') no-repeat;background-position: right bottom">
-            <div class="row banner-content p-5">
+          <!-- <div class="banner-ad bg-success-subtle block-2" style="background:url('images/ad-image-1.png') no-repeat;background-position: right bottom"> -->
+            <!-- <div class="row banner-content p-5">
 
               <div class="content-wrapper col-md-7">
                 <div class="categories sale mb-3 pb-3">20% off</div>
@@ -125,11 +120,11 @@
                   </svg></a>
               </div>
 
-            </div>
-          </div>
+            </div> -->
+          <!-- </div> -->
 
-          <div class="banner-ad bg-danger block-3" style="background:url('images/ad-image-2.png') no-repeat;background-position: right bottom">
-            <div class="row banner-content p-5">
+          <!-- <div class="banner-ad bg-danger block-3" style="background:url('images/ad-image-2.png') no-repeat;background-position: right bottom"> -->
+            <!-- <div class="row banner-content p-5">
 
               <div class="content-wrapper col-md-7">
                 <div class="categories sale mb-3 pb-3">15% off</div>
@@ -139,8 +134,8 @@
                   </svg></a>
               </div>
 
-            </div>
-          </div>
+            </div> -->
+          <!-- </div> -->
 
         </div>
         <!-- / Banner Blocks -->
@@ -298,7 +293,50 @@
 
 
 
+ <section class="py-5">
+      <div class="container-fluid">
 
+        <div class="bg-secondary py-5 my-5 rounded-5" style="background: url('images/bg-leaves-img-pattern.png') no-repeat;">
+          <div class="container my-5">
+            <div class="row">
+              <div class="col-md-6 p-5">
+                <div class="section-header">
+                  <h2 class="section-title display-4">Send  a Request</h2>
+                </div>
+                <p>We Would Love for you to get in Touch and Find our more about our Union .</p>
+              </div>
+              <div class="col-md-6 p-5">
+                <form>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text"
+                      class="form-control form-control-lg" name="name" id="name" placeholder="Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="abc@mail.com">
+                  </div>
+                 
+                   <div class=" mb-3">
+                
+                 <textarea class="form-control" rows="10" cols="30"></textarea>
+
+                  
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+                  </div>
+                </form>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
 
 
 @endsection

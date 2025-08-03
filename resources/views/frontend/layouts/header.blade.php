@@ -51,7 +51,7 @@
         <span class="text-primary">Search</span>
       </h4>
       <form role="search" action="index.html"  action="{{ route('search') }}" method="get" class="d-flex mt-3 gap-0">
-        <input class="form-control rounded-start rounded-0 bg-light" type="email" placeholder="What are you looking for?" aria-label="What are you looking for?">
+        <input class="form-control rounded-start rounded-0 bg-light" type="email" placeholder="Search for anything" aria-label="What are you looking for?">
         <button class="btn btn-dark rounded-end rounded-0" type="submit">Search</button>
       </form>
     </div>
@@ -82,7 +82,7 @@
           </div>
           <div class="col-11 col-md-7">
             <form id="search-form" class="text-center" action="{{ route('search') }}" method="get">
-              <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products" />
+              <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for anything " />
             </form>
           </div>
           <div class="col-1">
@@ -105,8 +105,8 @@
 
     {{-- Guest Links --}}
     @guest
-    <li><a href="{{ route('login') }}" class="dropdown-item p-2">Login</a></li>
-    <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li>
+    <li><a href="{{ route('login') }}" class="dropdown-item p-2">Become a Member</a></li>
+    <!-- <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li> -->
     @endguest
 
     {{-- Authenticated Links --}}
@@ -185,8 +185,8 @@
                   <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                   <ul class="dropdown-menu" aria-labelledby="pages">
                     @guest
-                    <li><a href="{{ route('login') }}" class="dropdown-item p-2">Login</a></li>
-                    <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li>
+                    <li><a href="{{ route('login') }}" class="dropdown-item p-2">Become a Member</a></li>
+                    <!-- <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li> -->
                     @endguest
                     @auth
                     <li><a href="{{ route('dashboard') }}" class="dropdown-item font-bold">My Account</a></li>
@@ -219,8 +219,10 @@
                   <a href="{{ route('events') }}" class="nav-link">Events</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <!-- <a href="#men" class="nav-link">Blogs</a> -->
-
+                  <a href="#men" class="nav-link">About us </a>
+                </li>
+                  <li class="nav-item dropdown">
+                  <a href="#men" class="nav-link">Gallery </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('marketPlace') }}" class="nav-link">MarketPlace</a>
