@@ -13,6 +13,18 @@ use Intervention\Image\ImageManager;
 class EventsController extends Controller
 {
 
+   public function subevent($id)
+{
+    $event= Event::find($id);
+$category = Category::all();
+    if (!$event) {
+        return view('frontend.pages.home');   
+    }
+
+    return view('frontend.pages.subevent', compact('event','category'));   
+}
+
+
     public function category(Request $request)
     {
         $request->validate([
@@ -41,6 +53,11 @@ public function update(Request $request, $id){
     // Update product info
     $product->update([
         'name' => $request->title,
+        'start_date='>$request->start_date,
+        'end_date'=>$request->end_date,
+        'location'=>$request->location,
+        'organizer'=>$request->organizer,
+        'hours'=>$request->hours,
         'eventinfo' => $request->eventinfo,
         'category' => $request->category,
     ]);
@@ -106,8 +123,14 @@ public function update(Request $request, $id){
     // ✅ Step 3: Prepare base data
     $data = [
         'name' => $request->name,
+        'contact_email'=>$request-> contact_email,
         'eventinfo' => $request->eventinfo,
-        'slug' => $slug,
+        'slug' => $request->slug,
+          'start_date'>$request->start_date,
+        'end_date'=>$request->end_date,
+        'location'=>$request->location,
+        'organizer'=>$request->organizer,
+        'hours'=>$request->hours,
         'category'=>$request->cat_id,
         'photo' => null,
     ];

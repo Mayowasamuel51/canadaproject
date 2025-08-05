@@ -166,7 +166,7 @@
       <div class="col-md-4">
         <article class="post-item card border-0 shadow-sm p-3">
           <div class="image-holder zoom-effect">
-            <a href="">
+            <a href="{{ route("subevent",$event->id) }}">
 
               <img src="{{ asset( $event->photo) }}" alt="{{ $event->name }}" class="card-img-top">
             </a>
@@ -242,7 +242,7 @@
 
                     </figure>
                     <h3>{{ $item->title }}</h3>
-                    <span class="qty">{{ $item->size ?? '1 Unit' }}</span>
+                   
                     <span class="rating">
                       <svg width="24" height="24" class="text-primary">
                         <use xlink:href="#star-solid"></use>
@@ -253,25 +253,17 @@
 
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="input-group product-qty">
-                        <span class="input-group-btn">
-                          <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
-                            <svg width="16" height="16">
-                              <use xlink:href="#minus"></use>
-                            </svg>
-                          </button>
-                        </span>
-                        <input type="text" name="quantity" class="form-control input-number" value="1">
-                        <span class="input-group-btn">
-                          <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
-                            <svg width="16" height="16">
-                              <use xlink:href="#plus"></use>
-                            </svg>
-                          </button>
-                        </span>
+                        
+                     
+                      
                       </div>
-                      <a href="" class="nav-link">Add to Cart
-                        <iconify-icon icon="uil:shopping-cart"></iconify-icon>
-                      </a>
+                    <form action="{{ route('cart.add', $item->id) }}" method="POST">
+  @csrf
+  <input type="hidden" name="quantity" value="1">
+  <button type="submit" class="btn btn-primary">Add to Cart
+    <iconify-icon icon="uil:shopping-cart"></iconify-icon>
+  </button>
+</form>
 
                     </div>
                   </div>
@@ -292,51 +284,6 @@
 
 
 
-
- <section class="py-5">
-      <div class="container-fluid">
-
-        <div class="bg-secondary py-5 my-5 rounded-5" style="background: url('images/bg-leaves-img-pattern.png') no-repeat;">
-          <div class="container my-5">
-            <div class="row">
-              <div class="col-md-6 p-5">
-                <div class="section-header">
-                  <h2 class="section-title display-4">Send  a Request</h2>
-                </div>
-                <p>We Would Love for you to get in Touch and Find our more about our Union .</p>
-              </div>
-              <div class="col-md-6 p-5">
-                <form>
-                  <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text"
-                      class="form-control form-control-lg" name="name" id="name" placeholder="Name">
-                  </div>
-                  <div class="mb-3">
-                    <label for="" class="form-label">Email</label>
-                    <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="abc@mail.com">
-                  </div>
-                 
-                   <div class=" mb-3">
-                
-                 <textarea class="form-control" rows="10" cols="30"></textarea>
-
-                  
-                  </div>
-                  <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-dark btn-lg">Submit</button>
-                  </div>
-                </form>
-                
-              </div>
-              
-            </div>
-            
-          </div>
-        </div>
-        
-      </div>
-    </section>
 
 
 @endsection

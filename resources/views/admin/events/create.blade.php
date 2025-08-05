@@ -2,7 +2,7 @@
 
 @section('main-content')
 <style>
-  
+
 </style>
 <div class="card">
   <h5 class="card-header font-bold">Add An Events</h5>
@@ -17,37 +17,85 @@
         @enderror
       </div>
 
+       <div class="form-group">
+        <label for="inputTitle" class="col-form-label font-semibold">Hours<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="hours" placeholder="12:00-3:40pm" value="{{old('hours')}}" class="form-control">
+        @error('hours')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+      </div>
+
+         <div class="form-group">
+        <label for="inputTitle" class="col-form-label font-semibold">Location<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="location" placeholder="event location" value="{{old('location')}}" class="form-control">
+        @error('location')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+      </div>
+
+       <div class="form-group">
+        <label for="inputTitle" class="col-form-label font-semibold">Organizer<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="organizer" placeholder="organizer name" value="{{old('organizer')}}" class="form-control">
+        @error('organizer')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+      </div>
+
+         <div class="form-group">
+        <label for="inputTitle" class="col-form-label font-semibold">start date<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="date" name="start_date" placeholder="start date" value="{{old('start_date')}}" class="form-control">
+        @error('start_date')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+      </div>
+     
+
+         <div class="form-group">
+        <label for="inputTitle" class="col-form-label font-semibold">start date<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="text" name="contact_email" placeholder="start date" value="{{old('contact_email')}}" class="form-control">
+        @error('contact_email')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+      </div>
+        <div class="form-group">
+        <label for="inputTitle" class="col-form-label font-semibold">end date<span class="text-danger">*</span></label>
+        <input id="inputTitle" type="date" name="end_date" placeholder="end date of the event" value="{{old('end_date')}}" class="form-control">
+        @error('end_date')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+      </div>
+
 
 
       <div class="form-group">
         <label for="description" class="col-form-label">Event infomation </label>
-        <textarea class="form-control" id="description"  placeholder="event infomation" name="eventinfo">{{old('eventinfo')}}</textarea>
+        <textarea class="form-control" id="description" placeholder="event infomation" name="eventinfo">{{old('eventinfo')}}</textarea>
         @error('eventinfo')
         <span class="text-danger">{{$message}}</span>
         @enderror
       </div>
 
       {{-- {{$categories}} --}}
-    <div class="form-group">
-    <label for="cat_id">Event Category  <span class="text-danger">*</span></label>
-    <select name="cat_id" id="cat_id" class="form-control" required>
-        <option value="">--Select any category--</option>
-        @foreach($eventcat  as $cat)
-            <option value="{{ $cat->id }}">{{ $cat->eventcat }}</option>
-        @endforeach
-    </select>
-</div>
+      <div class="form-group">
+        <label for="cat_id">Event Category <span class="text-danger">*</span></label>
+        <select name="cat_id" id="cat_id" class="form-control" required>
+          <option value="">--Select any category--</option>
+          @foreach($eventcat as $cat)
+          <option value="{{ $cat->id }}">{{ $cat->eventcat }}</option>
+          @endforeach
+        </select>
+      </div>
 
       <div class="form-group">
-  <label for="inputPhoto" class="col-form-label">Photos <span class="text-danger">*</span></label>
-  <div class="input-group">
-    <input required type="file" class="form-control" name="photo" >
-  </div>
-  @error('photo')
-    <span class="text-danger">{{ $message }}</span>
-  @enderror
-</div>
-     
+        <label for="inputPhoto" class="col-form-label">Photos <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <input required type="file" class="form-control" name="photo">
+        </div>
+        @error('photo')
+        <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+
       <div class="form-group mb-3">
         <button type="reset" class="btn btn-warning">Reset</button>
         <button class="btn btn-success" type="submit">Submit</button>

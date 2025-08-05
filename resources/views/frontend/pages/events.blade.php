@@ -30,7 +30,7 @@
       <div class="col-md-4">
         <article class="post-item card border-0 shadow-sm p-3">
           <div class="image-holder zoom-effect">
-            <a href="">
+            <a href="{{ route("subevent",$event->id) }}">
 
               <img src="{{ asset( $event->photo) }}" alt="{{ $event->name }}" class="card-img-top">
             </a>

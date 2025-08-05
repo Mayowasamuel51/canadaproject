@@ -1,11 +1,9 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
-    </div>
-    <div class="sidebar-brand-text mx-3">Upcanada Admin</div>
+  <a class="sidebar-brand">
+    
+    <div class="sidebar-brand-text  font-extrabold ">Upcanada Admin</div>
   </a>
 
   <!-- Divider -->
@@ -28,11 +26,7 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <!-- Nav Item - Charts -->
-  <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-fw fa-chart-area"></i>
-      <span>Media Manager</span></a>
-  </li>
+
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -45,6 +39,7 @@
 
         <a class="collapse-item" href="{{route('admin.events.index')}}">Events</a>
         <a class="collapse-item" href="{{route('admin.events.create')}}">Add Events</a>
+           <a class="collapse-item" href="{{route('admin.events.create')}}"> Events infomation </a>
       </div>
     </div>
   </li>

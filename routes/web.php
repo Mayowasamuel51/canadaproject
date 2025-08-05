@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\PageContoller;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CartController;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -34,10 +35,15 @@ Route::get('register', [AuthenticatedSessionController::class, 'create'])
 // General pages 
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/events', [PageContoller::class, 'events'])->name('events');
+Route::get('/events/{id}', [EventsController::class, 'subevent'])->name('subevent');
 Route::get('/marketPlace', [PageContoller::class, 'marketPlace'])->name('marketPlace');
 
 
-
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/add-to-cart/{id}', [App\Http\Controllers\CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/remove-from-cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 
 
