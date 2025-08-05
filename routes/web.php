@@ -98,8 +98,7 @@ Route::middleware(['admin.session'])->prefix('/admin')->name('admin.')->group(fu
     Route::post('/events/{id}/update', [EventsController::class, 'update'])->name('events.update');
     // fix the show part for event 
     // Show  Event category creation form
-    Route::get('/brand/create', [EventsController::class, 'categoryIndex'])->name('category.index');
-    // Handle category creation
+    
     Route::post('/brand', [EventsController::class, 'category'])->name('brand.create');
 
     // blogs 

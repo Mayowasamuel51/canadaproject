@@ -68,15 +68,6 @@ public function update(Request $request, $id)
 }
 
 
-
-
-
-
-
-
-
-
-
     public function category(Request $request)
     {
         $request->validate([
