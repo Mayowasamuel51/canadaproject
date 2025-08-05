@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <!-- title of site -->
     <title>UPUCANADA</title>
+    <link rel="stylesheet" href="{{ asset('build/assets/app-DaBYqt0m.css') }}">
+
+<!-- JS -->
+<script src="{{ asset('build/assets/app-DaBYqt0m.js') }}" defer></script>
     <!-- font-awesome.min.css -->
     <link rel="stylesheet" href="{{ asset('frontend/css/vendor.css') }}">
     <!-- linear icon css -->
