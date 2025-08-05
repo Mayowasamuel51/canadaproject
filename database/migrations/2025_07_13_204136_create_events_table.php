@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("category")->nullable();
              $table->string("price")->nullable();
              $table->string('contact_email')->nullable();
-             $table->string('price')->nullable();
+        
               $table->string("start_date")->nullable();
                $table->string("organizer")->nullable();
                $table->string("end_date")->nullable();
