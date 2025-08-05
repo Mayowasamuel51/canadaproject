@@ -227,9 +227,13 @@
                 </li>
                   <li class="nav-item dropdown">
                   <a href="#men" class="nav-link">Gallery </a>
-                </li>
+                </li>  
                 <li class="nav-item">
                   <a href="{{ route('marketPlace') }}" class="nav-link">MarketPlace</a>
+                </li>
+
+                 <li class="nav-item">
+                  <a href="{{ route('aboutus') }}" class="nav-link">About us</a>
                 </li>
 
               </ul>

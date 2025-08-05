@@ -37,6 +37,7 @@ Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/events', [PageContoller::class, 'events'])->name('events');
 Route::get('/events/{id}', [EventsController::class, 'subevent'])->name('subevent');
 Route::get('/marketPlace', [PageContoller::class, 'marketPlace'])->name('marketPlace');
+Route::get('/aboutus', [PageContoller::class, 'aboutus'])->name('aboutus');
 
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

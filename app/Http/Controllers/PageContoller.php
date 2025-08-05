@@ -29,6 +29,13 @@ class PageContoller extends Controller
          return view('frontend.pages.marketplace', compact('product', 'category', 'events'));
     }
 
+     public function aboutus(){
+        $product = Product::all();
+        $category =  Category::all();
+        $events = Event::all();
+         return view('frontend.pages.aboutus', compact('product', 'category', 'events'));
+    }
+
 
 
 
