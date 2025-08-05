@@ -66,8 +66,12 @@
                       <img src="images/product-thumb-1.png" class="img-fluid">
                     </div> -->
                       <!-- <div class="categories my-3">100% natural</div> -->
-                      <h2 class="display-4">We're Here to Serve You!</h2>
-                      <p>UPU(UK) is a registered branch of UPU.  We are open to all sons and daughters of Urhobo to register to become a member. As a community-based organisation, we have an aspiration to acquire charity status while engaging in initiatives to promote the welfare on the Urhobo community in the United Kingdom. Our primary focus is to create a space where members can enjoy togetherness..</p>
+                      <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+            Urhobo Progress Union (UPU) Canada
+        </h1>
+                        <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+            A strong national body connecting all Urhobo people across Canada. Preserving our heritage, empowering our future.
+        </p>
                       <a href="{{ route("events") }}" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Events</a>
                         <a href="{{ route("login") }}" class="ml-2 btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Become a Member</a>
                     </div>

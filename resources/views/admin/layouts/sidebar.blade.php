@@ -101,43 +101,19 @@
   </li>
 
   {{-- Shipping --}}
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse" aria-expanded="true" aria-controls="shippingCollapse">
-      <i class="fas fa-truck"></i>
-      <span>Shipping</span>
-    </a>
-    <div id="shippingCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Shipping Options:</h6>
-        <a class="collapse-item">Shipping</a>
-        <a class="collapse-item">Add Shipping</a>
-      </div>
-    </div>
-  </li>
 
   <!--Orders -->
-  <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-hammer fa-chart-area"></i>
-      <span>Orders</span>
-    </a>
-  </li>
+
 
   <!-- Reviews -->
-  <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-comments"></i>
-      <span>Reviews</span></a>
-  </li>
+
 
 
   <!-- Divider -->
   <hr class="sidebar-divider">
 
   <!-- Heading -->
-  <div class="sidebar-heading">
-    Posts
-  </div>
+
 
   <!-- Posts -->
   <li class="nav-item">
@@ -153,22 +129,7 @@
       </div>
     </div>
   </li>
-
   <!-- Category -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCategoryCollapse" aria-expanded="true" aria-controls="postCategoryCollapse">
-      <i class="fas fa-sitemap fa-folder"></i>
-      <span>Category</span>
-    </a>
-    <div id="postCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Category Options:</h6>
-        <a class="collapse-item">Category</a>
-        <a class="collapse-item">Add Category</a>
-      </div>
-    </div>
-  </li>
-
   <!-- Tags -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tagCollapse" aria-expanded="true" aria-controls="tagCollapse">
@@ -183,7 +144,6 @@
       </div>
     </div>
   </li>
-
   <!-- Comments -->
   <li class="nav-item">
     <a class="nav-link">
