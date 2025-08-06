@@ -1,292 +1,283 @@
 @extends('frontend.layouts.master')
 @section('title','CANADA BLOG || HOME PAGE')
 @section('main-content')
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <defs>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M12 19a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm0-4a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm-5 0a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm7-12h-1V2a1 1 0 0 0-2 0v1H8V2a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Zm1 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16Zm0-11H4V6a1 1 0 0 1 1-1h1v1a1 1 0 0 0 2 0V5h8v1a1 1 0 0 0 2 0V5h1a1 1 0 0 1 1 1ZM7 15a1 1 0 1 0-1-1a1 1 0 0 0 1 1Zm0 4a1 1 0 1 0-1-1a1 1 0 0 0 1 1Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-right" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M17.92 11.62a1 1 0 0 0-.21-.33l-5-5a1 1 0 0 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 .21-.33a1 1 0 0 0 0-.76Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="category" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M19 5.5h-6.28l-.32-1a3 3 0 0 0-2.84-2H5a3 3 0 0 0-3 3v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-10a3 3 0 0 0-3-3Zm1 13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1h4.56a1 1 0 0 1 .95.68l.54 1.64a1 1 0 0 0 .95.68h7a1 1 0 0 1 1 1Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="calendar" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M19 4h-2V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7h16Zm0-9H4V7a1 1 0 0 1 1-1h2v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h2a1 1 0 0 1 1 1Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="heart" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M20.16 4.61A6.27 6.27 0 0 0 12 4a6.27 6.27 0 0 0-8.16 9.48l7.45 7.45a1 1 0 0 0 1.42 0l7.45-7.45a6.27 6.27 0 0 0 0-8.87Zm-1.41 7.46L12 18.81l-6.75-6.74a4.28 4.28 0 0 1 3-7.3a4.25 4.25 0 0 1 3 1.25a1 1 0 0 0 1.42 0a4.27 4.27 0 0 1 6 6.05Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="plus" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="minus" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M19 11H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="cart" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19ZM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74a3.007 3.007 0 0 0-2.82-2H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2Zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7ZM16.5 19a1.5 1.5 0 1 0 1.5 1.5a1.5 1.5 0 0 0-1.5-1.5Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="check" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="trash" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1ZM20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2ZM10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="star-outline" viewBox="0 0 15 15">
-      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M7.5 9.804L5.337 11l.413-2.533L4 6.674l2.418-.37L7.5 4l1.082 2.304l2.418.37l-1.75 1.793L9.663 11L7.5 9.804Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="star-solid" viewBox="0 0 15 15">
-      <path fill="currentColor" d="M7.953 3.788a.5.5 0 0 0-.906 0L6.08 5.85l-2.154.33a.5.5 0 0 0-.283.843l1.574 1.613l-.373 2.284a.5.5 0 0 0 .736.518l1.92-1.063l1.921 1.063a.5.5 0 0 0 .736-.519l-.373-2.283l1.574-1.613a.5.5 0 0 0-.283-.844L8.921 5.85l-.968-2.062Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="search" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="user" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 15 15">
-      <path fill="currentColor" d="M7.953 3.788a.5.5 0 0 0-.906 0L6.08 5.85l-2.154.33a.5.5 0 0 0-.283.843l1.574 1.613l-.373 2.284a.5.5 0 0 0 .736.518l1.92-1.063l1.921 1.063a.5.5 0 0 0 .736-.519l-.373-2.283l1.574-1.613a.5.5 0 0 0-.283-.844L8.921 5.85l-.968-2.062Z" />
-    </symbol>
-  </defs>
-</svg>
 
-<section class="py-3" style="background-image: url('images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="b">
-          <div class="banner-ad large bg-info block-1">
-            <div class="swiper main-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="row banner-content p-5">
-                    <div class="">
-                        <!-- <div class="img-wrapper col-md-5">
-                      <img src="images/product-thumb-1.png" class="img-fluid">
-                    </div> -->
-                      <!-- <div class="categories my-3">100% natural</div> -->
-                      <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-            Urhobo Progress Union (UPU) Canada
-        </h1>
-                        <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            A strong national body connecting all Urhobo people across Canada. Preserving our heritage, empowering our future.
-        </p>
-                      <a href="{{ route("events") }}" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Events</a>
-                        <a href="{{ route("login") }}" class="ml-2 btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Become a Member</a>
+ <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+       <!-- <img class="w-100"
+                     src="img/carousel-1.jpg"
+                      alt="Image"> -->
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100"  src="img/carousel-1.jpg" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7">
+                                    <h1 class="display-2 text-light mb-5 animated slideInDown">Urhobo Progress Union (UPU) Canada</h1>
+                               <p class="text-2xl md:text-4xl  max-w-4xl mx-auto leading-relaxed text-center font-semibold">
+    A united national body connecting all Urhobo people across Canada — preserving our heritage, empowering our future, and fostering cultural pride in a multicultural society.
+</p>
+
+                                    <a href="{{ route('events') }}"  class="btn btn-primary py-sm-3 px-sm-5">Events</a>
+                                    <a href="{{ route('login') }}"  class="btn btn-light py-sm-3 px-sm-5 ms-3">Become a Member</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  
-                  </div>
                 </div>
-
-                <!-- <div class="swiper-slide">
-                  <div class="row banner-content p-5">
-                    <div class="content-wrapper col-md-7">
-                      <div class="categories mb-3 pb-3">100% natural</div>
-                      <h3 class="banner-title">Fresh Smoothie & Summer Juice</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
-                      <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
+                <!-- <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7">
+                                    <h1 class="display-2 text-light mb-5 animated slideInDown">Safe Driving Is Our Top Priority</h1>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-5">Learn More</a>
+                                    <a href="" class="btn btn-light py-sm-3 px-sm-5 ms-3">Our Courses</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="img-wrapper col-md-5">
-                      <img src="images/product-thumb-1.png" class="img-fluid">
-                    </div>
-                  </div>
                 </div> -->
-
-                <!-- <div class="swiper-slide">
-                  <div class="row banner-content p-5">
-                    <div class="content-wrapper col-md-7">
-                      <div class="categories mb-3 pb-3">100% natural</div>
-                      <h3 class="banner-title">Heinz Tomato Ketchup</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
-                      <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop Collection</a>
-                    </div>
-                    <div class="img-wrapper col-md-5">
-                      <img src="images/product-thumb-2.png" class="img-fluid">
-                    </div>
-                  </div>
-                </div> -->
-              </div>
-
-              <!-- <div class="swiper-pagination"></div> -->
-
             </div>
-          </div>
-
-          <!-- <div class="banner-ad bg-success-subtle block-2" style="background:url('images/ad-image-1.png') no-repeat;background-position: right bottom"> -->
-            <!-- <div class="row banner-content p-5">
-
-              <div class="content-wrapper col-md-7">
-                <div class="categories sale mb-3 pb-3">20% off</div>
-                <h3 class="banner-title">Fruits & Vegetables</h3>
-                <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24" height="24">
-                    <use xlink:href="#arrow-right"></use>
-                  </svg></a>
-              </div>
-
-            </div> -->
-          <!-- </div> -->
-
-          <!-- <div class="banner-ad bg-danger block-3" style="background:url('images/ad-image-2.png') no-repeat;background-position: right bottom"> -->
-            <!-- <div class="row banner-content p-5">
-
-              <div class="content-wrapper col-md-7">
-                <div class="categories sale mb-3 pb-3">15% off</div>
-                <h3 class="item-title">Baked Products</h3>
-                <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24" height="24">
-                    <use xlink:href="#arrow-right"></use>
-                  </svg></a>
-              </div>
-
-            </div> -->
-          <!-- </div> -->
-
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <!-- / Banner Blocks -->
-
-      </div>
     </div>
-  </div>
-</section>
-
-<section id="latest-blog" class="py-5">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="section-header d-flex align-items-center justify-content-between my-5">
-        <h2 class="section-title">Upcoming Events</h2>
-        <div class="btn-wrap align-right">
-          <a href="" class="d-flex align-items-center nav-link">
-            Read All Articles
-            <svg width="24" height="24">
-              <use xlink:href="#arrow-right"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      @foreach ($events as $event)
-      <div class="col-md-4">
-        <article class="post-item card border-0 shadow-sm p-3">
-          <div class="image-holder zoom-effect">
-            <a href="{{ route("subevent",$event->id) }}">
-
-              <img src="{{ asset( $event->photo) }}" alt="{{ $event->name }}" class="card-img-top">
-            </a>
-          </div>
-          <div class="card-body">
-            <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
-              <div class="meta-date">
-                <svg width="16" height="16">
-                  <use xlink:href="#calendar"></use>
-                </svg>
-                {{ \Carbon\Carbon::parse($event->created_at)->format('d M Y') }}
-              </div>
-              <div class="meta-categories">
-                <svg width="16" height="16" class="post-title">
-                  <use xlink:href="#category"></use>
-                </svg>
-                {{ $event->name ?? 'Uncategorized' }}
-              </div>
-            </div>
-            <div class="post-header">
-              <h3 class="post-title">
-                <a href="" class="text-decoration-none">
-                  {{ Str::limit($event->title, 50) }}
-                </a>
-              </h3>
-              <p>{{ Str::limit(strip_tags($event->eventinfo), 53) }}</p>
-            </div>
-          </div>
-        </article>
-      </div>
-      @endforeach
-    </div>
+    <!-- Carousel End -->
 
 
-
-  </div>
-</section>
-
-<section class="py-5">
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-md-12">
-
-        <div class="bootstrap-tabs product-tabs">
-          <div class="tabs-header d-flex justify-content-between border-bottom my-5">
-            <h3>Trending Products</h3>
-            <nav>
-              <!-- <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a href="#" class="nav-link text-uppercase fs-6 active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all">All</a>
-                <a href="#" class="nav-link text-uppercase fs-6" id="nav-fruits-tab" data-bs-toggle="tab" data-bs-target="#nav-fruits">Fruits & Veges</a>
-                <a href="#" class="nav-link text-uppercase fs-6" id="nav-juices-tab" data-bs-toggle="tab" data-bs-target="#nav-juices">Juices</a> -->
-              </div>
-            </nav>
-          </div>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-              <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-
-                @foreach($product as $item)
-                <div class="col mb-4">
-                  <div class="product-item">
-                    <a href="#" class="btn-wishlist">
-                      <svg width="24" height="24">
-                        <use xlink:href="#heart"></use>
-                      </svg>
-                    </a>
-                    <figure>
-                      <a href="#" title="{{ $item->title }}">
-                        <img src="{{ asset($item->photo) }}" alt="{{ $item->title }}" class="tab-image" width="230" height="200">
-                      </a>
-
-
-                    </figure>
-                    <h3>{{ $item->title }}</h3>
-                   
-                    <span class="rating">
-                      <svg width="24" height="24" class="text-primary">
-                        <use xlink:href="#star-solid"></use>
-                      </svg>
-                      {{ $item->rating ?? '4.5' }}
-                    </span>
-                    <span class="price">${{ number_format($item->price, 2) }}</span>
-
-                    <div class="d-flex align-items-center justify-content-between">
-                      <div class="input-group product-qty">
-                        
-                     
-                      
-                      </div>
-                    <form action="{{ route('cart.add', $item->id) }}" method="POST">
-  @csrf
-  <input type="hidden" name="quantity" value="1">
-  <button type="submit" class="btn btn-primary">Add to Cart
-    <iconify-icon icon="uil:shopping-cart"></iconify-icon>
-  </button>
-</form>
-
+    <!-- Facts Start -->
+    <div class="container-fluid facts py-5 pt-lg-0">
+        <div class="container py-5 pt-lg-0">
+            <div class="row gx-0">
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="bg-white shadow d-flex align-items-center h-100 p-4" style="min-height: 150px;">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-lg-square bg-primary">
+                                <i class="fa fa-car text-white"></i>
+                            </div>
+                            <div class="ps-4">
+                                <h5>Cultural Promotion</h5>
+                                <span>  
+                We promote Urhobo language, history, and traditions through events and education
+            </span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                @endforeach
-              </div>
-              <!-- / product-grid -->
-
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="bg-white shadow d-flex align-items-center h-100 p-4" style="min-height: 150px;">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-lg-square bg-primary">
+                                <i class="fa fa-users text-white"></i>
+                            </div>
+                            <div class="ps-4">
+                                <h5>Youth Empowerment</h5>
+                                <span>We support Urhobo youth and families through mentorship and development programs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="bg-white shadow d-flex align-items-center h-100 p-4" style="min-height: 150px;">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 btn-lg-square bg-primary">
+                                <i class="fa fa-file-alt text-white"></i>
+                            </div>
+                            <div class="ps-4">
+                                <h5>Events & Outreach</h5>
+                                <span>We organize cultural festivals, outreach programs, and community building events.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
-</section>
+    <!-- Facts End -->
 
 
+    <!-- About Start -->
+    <!-- <div class="container-xxl py-6">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style="min-height: 400px;">
+                        <img class="position-absolute w-100 h-100" src="img/about-1.jpg" alt="" style="object-fit: cover;">
+                        <img class="position-absolute top-0 start-0 bg-white pe-3 pb-3" src="img/about-2.jpg" alt="" style="width: 200px; height: 200px;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h6 class="text-primary text-uppercase mb-2">About Us</h6>
+                        <h1 class="display-6 mb-4">We Help Students To Pass Test & Get A License On The First Try</h1>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <div class="row g-2 mb-4 pb-2">
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Fully Licensed
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Online Tracking
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Afordable Fee 
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Best Trainers
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary py-3 px-5" href="">Read More</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="d-inline-flex align-items-center btn btn-outline-primary border-2 p-2" href="tel:+0123456789">
+                                    <span class="flex-shrink-0 btn-square bg-primary">
+                                        <i class="fa fa-phone-alt text-white"></i>
+                                    </span>
+                                    <span class="px-3">+012 345 6789</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- About End -->
+
+
+    <!-- Courses Start -->
+    <div class="container-xxl courses my-6 py-6 pb-0">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="text-primary text-uppercase mb-2">Our Misson</h1>
+                <!-- <h1 class="display-6 mb-4">Our Courses Upskill You With Driving Training</h1> -->
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">1</div>
+                            <!-- <h5 class="mb-3">Automatic Car Lessons</h5> -->
+                            <p>  The Urhobo Progress Union (UPU) of Canada National is the officially recognized national umbrella organization representing Urhobo people across Canada.
+                We are a cultural, non-profit, and community-driven body committed to the preservation, promotion, and advancement of Urhobo heritage, unity, and values
+                within the Canadian multicultural landscape.</p>
+                            <!-- <ol class="breadcrumb justify-content-center mb-0"> -->
+                                <!-- <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li> -->
+                                <!-- <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li> -->
+                            <!-- </ol> -->
+                        </div>
+                        <!-- <div class="position-relative mt-auto"> -->
+                            <!-- <img class="img-fluid" src="img/courses-1.jpg" alt=""> -->
+                            <!-- <div class="courses-overlay"> -->
+                                <!-- <a class="btn btn-outline-primary border-2" href="">Read More</a> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">2</div>
+                            <!-- <h5 class="mb-3">Highway Driving Lesson</h5> -->
+                            <p> Founded to foster a strong sense of identity, belonging, and collaboration among Urhobo descendants in Canada, UPU Canada serves as a central platform for advocacy,
+                cultural education, youth empowerment, and social development.</p>
+                            <!-- <ol class="breadcrumb justify-content-center mb-0"> -->
+                                <!-- <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li> -->
+                                <!-- <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li> -->
+                            <!-- </ol> -->
+                        </div>
+                        <!-- <div class="position-relative mt-auto"> -->
+                            <!-- <img class="img-fluid" src="img/courses-2.jpg" alt=""> -->
+                            <!-- <div class="courses-overlay"> -->
+                                <!-- <a class="btn btn-outline-primary border-2" href="">Read More</a> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">3</div>
+                            <!-- <h5 class="mb-3">International Driving</h5> -->
+                            <p>  With the inauguration of the National Body on April 27, 2025, under the globally recognized structure of the UPU Worldwide, we now operate with a unified voice,
+                clear vision, and strategic purpose ,At UPU Canada, we believe in progress through unity, and we stand firm in our mission to uplift our people, preserve our identity,
+                and contribute positively to the communities we are part of.</p>
+                            <!-- <ol class="breadcrumb justify-content-center mb-0"> -->
+                                <!-- <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li> -->
+                                <!-- <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li> -->
+                            <!-- </ol> -->
+                        </div>
+                        <!-- <div class="position-relative mt-auto"> -->
+                            <!-- <img class="img-fluid" src="img/courses-3.jpg" alt=""> -->
+                            <!-- <div class="courses-overlay"> -->
+                                <!-- <a class="btn btn-outline-primary border-2" href="">Read More</a> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-primary text-center p-5">
+                        <h1 class="mb-4">Send a request</h1>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
+                                        <label for="gname">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
+                                        <label for="gmail">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- <div class="form-floating"> -->
+                                        <!-- <input type="text" class="form-control border-0" id="cname" placeholder="Child Name"> -->
+                                        <!-- <label for="cname">Courses Type</label> -->
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- <div class="form-floating"> -->
+                                        <!-- <input type="text" class="form-control border-0" id="cage" placeholder="Child Age"> -->
+                                        <!-- <label for="cage">Car Type</label> -->
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Courses End -->
 
 
 
