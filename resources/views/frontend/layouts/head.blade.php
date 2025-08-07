@@ -7,10 +7,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<<<<<<< HEAD
+=======
 
 
 <!-- Google Font Example -->
 
+>>>>>>> 592e08cb5a5dc5a34c455c06b13550dec5ccc23e
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <!-- Icon Fonts -->
@@ -21,6 +24,8 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 
   <!-- Optional: other libraries if needed -->
+<<<<<<< HEAD
+=======
 
   <!-- ✅ If you're using Vite (recommended for Laravel 9/10/11) -->
   @vite(['resources/css/app.css', 'resources/css/app.css'])
@@ -34,6 +39,7 @@
   <script src="{{ mix('js/app.js') }}" defer></script> --}}
 
   <!-- Optional: Legacy or additional styles -->
+>>>>>>> 592e08cb5a5dc5a34c455c06b13550dec5ccc23e
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('lib/animate/animate.min.css') }}">
