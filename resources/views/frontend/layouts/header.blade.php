@@ -1,7 +1,16 @@
 <!-- Topbar Start -->
 <div class="container-fluid bg-dark text-light p-0">
     <div class="row gx-0 d-none d-lg-flex">
-      
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>123 Street, New York, USA</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+            </div>
+        </div>
         <div class="col-lg-5 px-5 text-end">
             <div class="h-100 d-inline-flex align-items-center me-4">
                 <small class="fa fa-phone-alt text-primary me-2"></small>
@@ -38,30 +47,31 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu bg-light m-0">
                     @guest
-                        <a href="{{ route('login') }}" class="dropdown-item">Become a Member</a>
+                    <a href="{{ route('login') }}" class="dropdown-item">Become a Member</a>
                     @endguest
 
                     @auth
-                        <a href="{{ route('dashboard') }}" class="dropdown-item fw-bold">My Account</a>
-                        <a href="{{ route('logout') }}" class="dropdown-item"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
+                    <a href="{{ route('dashboard') }}" class="dropdown-item fw-bold">My Account</a>
+                    <a href="{{ route('logout') }}" class="dropdown-item"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
                     @endauth
-  <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-            <a href="{{ route('marketPlace') }}" class="nav-item nav-link">Market Place</a>
-            <a href="{{ route('events') }}" class="nav-item nav-link">Events</a>
-            <a href="{{ route('aboutus') }}" class="nav-item nav-link">About Us</a>
+
+                    <a href="{{ route('home') }}" class="dropdown-item">Home</a>
+                    <a href="{{ route('marketPlace') }}" class="dropdown-item">Market Place</a>
+                    <a href="{{ route('events') }}" class="dropdown-item">Events</a>
+                    <a href="{{ route('aboutus') }}" class="dropdown-item">About Us</a>
                 </div>
             </div>
 
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a class="nav-item nav-link">Contact</a>
         </div>
 
         @guest
-            <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block">
-                Become a Member <i class="fa fa-arrow-right ms-2 mt-3"></i>
-            </a>
+        <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block">
+            Become a Member <i class="fa fa-arrow-right ms-2 mt-3"></i>
+        </a>
         @endguest
     </div>
 
