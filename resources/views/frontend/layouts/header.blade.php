@@ -28,17 +28,22 @@
 <!-- Topbar End -->
 
 <!-- Navbar Start -->
+ 
+
+
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
     <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
         <h2 class="m-0"><i class="text-primary me-2"></i>UpuCanada</h2>
     </a>
+   
+    
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+            <a href="{{ route('home') }}" class="nav-item nav-link active" style="color: black;">Home</a>
             <a href="{{ route('marketPlace') }}" class="nav-item nav-link">Market Place</a>
             <a href="{{ route('events') }}" class="nav-item nav-link">Events</a>
             <a href="{{ route('aboutus') }}" class="nav-item nav-link">About Us</a>

@@ -1,14 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','CANADA BLOG || HOME PAGE')
+@section('title','CANADA  || HOME PAGE')
 @section('main-content')
 
- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-       <!-- <img class="w-100"
-                     src="img/carousel-1.jpg"
-                      alt="Image"> -->
-    <!-- Carousel Start -->
     <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
