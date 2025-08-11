@@ -79,8 +79,7 @@
 
 /*** Navbar ***/
 .navbar.sticky-top {
-    top: -100px;
-    transition: .5s;
+    top:0;
 }
 
 .navbar .navbar-brand,
