@@ -119,31 +119,19 @@
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true" aria-controls="postCollapse">
       <i class="fas fa-fw fa-folder"></i>
-      <span>Posts</span>
+      <span>User</span>
     </a>
     <div id="postCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Post Options:</h6>
-        <a class="collapse-item">Posts</a>
-        <a class="collapse-item">Add Post</a>
+        <h6 class="collapse-header">Users Options:</h6>
+        <a class="collapse-item">View all Users</a>
+      
       </div>
     </div>
   </li>
   <!-- Category -->
   <!-- Tags -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tagCollapse" aria-expanded="true" aria-controls="tagCollapse">
-      <i class="fas fa-tags fa-folder"></i>
-      <span>Tags</span>
-    </a>
-    <div id="tagCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Tag Options:</h6>
-        <a class="collapse-item">Tag</a>
-        <a class="collapse-item">Add Tag</a>
-      </div>
-    </div>
-  </li>
+
   <!-- Comments -->
   <li class="nav-item">
     <a class="nav-link">
@@ -159,23 +147,15 @@
   <div class="sidebar-heading">
     General Settings
   </div>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link">
       <i class="fas fa-table"></i>
       <span>Coupon</span></a>
-  </li>
+  </li> -->
   <!-- Users -->
-  <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-users"></i>
-      <span>Users</span></a>
-  </li>
+
   <!-- General settings -->
-  <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-cog"></i>
-      <span>Settings</span></a>
-  </li>
+ 
 
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">

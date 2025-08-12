@@ -52,7 +52,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu bg-light m-0">
                     @guest
-                    <a href="{{ route('login') }}" class="dropdown-item">Become a Member</a>
+                    <a href="{{ route('login') }}" style="background-color: #e6792b;" class="dropdown-item">Become a Member</a>
                     @endguest
 
                     @auth
