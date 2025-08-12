@@ -72,6 +72,47 @@
 
             <a class="nav-item nav-link">Contact</a>
         </div>
+<!-- Cart Dropdown -->
+<div class="nav-item dropdown">
+    <a href="#" class="btn btn-outline-primary position-relative ms-3 nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{ count(session('cart', [])) }}
+        </span>
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 300px;">
+        <h6 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Your cart</span>
+            <span class="badge bg-primary rounded-pill">{{ count(session('cart', [])) }}</span>
+        </h6>
+
+        <ul class="list-group mb-3">
+            @php $total = 0; @endphp
+            @forelse(session('cart', []) as $id => $item)
+                @php $total += $item['price'] * $item['quantity']; @endphp
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">{{ $item['title'] }}</h6>
+                        <small class="text-muted">Qty: {{ $item['quantity'] }}</small>
+                        <br>
+                        <a href="{{ route('cart.remove', $id) }}" class="text-danger small">Remove</a>
+                    </div>
+                    <span class="text-muted">${{ $item['price'] * $item['quantity'] }}</span>
+                </li>
+            @empty
+                <li class="list-group-item text-center text-muted">Cart is empty</li>
+            @endforelse
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Total (USD)</span>
+                <strong>${{ $total }}</strong>
+            </li>
+        </ul>
+
+        <a href="{{ route('cart.index') }}" class="btn btn-primary w-100">Go to Checkout</a>
+    </div>
+</div>
+
 
         @guest
         <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block">

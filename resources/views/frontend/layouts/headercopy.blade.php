@@ -479,3 +479,112 @@
         @csrf
     </form>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+    <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
+        <h2 class="m-0"><i class="text-primary me-2"></i>UpuCanada</h2>
+    </a>
+   
+    
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="{{ route('home') }}" class="nav-item nav-link active" style="color: black;">Home</a>
+            <a href="{{ route('marketPlace') }}" class="nav-item nav-link">Market Place</a>
+            <a href="{{ route('events') }}" class="nav-item nav-link">Events</a>
+            <a href="{{ route('aboutus') }}" class="nav-item nav-link">About Us</a>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu bg-light m-0">
+                    @guest
+                    <a href="{{ route('login') }}" style="background-color: #e6792b;" class="dropdown-item">Become a Member</a>
+                    @endguest
+
+                    @auth
+                    <a href="{{ route('dashboard') }}" class="dropdown-item fw-bold">My Account</a>
+                    <a href="{{ route('logout') }}" class="dropdown-item"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    @endauth
+
+                    <a href="{{ route('home') }}" class="dropdown-item">Home</a>
+                    <a href="{{ route('marketPlace') }}" class="dropdown-item">Market Place</a>
+                    <a href="{{ route('events') }}" class="dropdown-item">Events</a>
+                    <a href="{{ route('aboutus') }}" class="dropdown-item">About Us</a>
+                </div>
+            </div>
+
+            <a class="nav-item nav-link">Contact</a>
+        </div>
+
+        @guest
+        <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block">
+            Become a Member <i class="fa fa-arrow-right ms-2 mt-3"></i>
+        </a>
+        @endguest
+    </div>
+
+    <!-- Hidden Logout Form -->
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+</nav>
