@@ -115,7 +115,7 @@
 
 
         @guest
-        <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block">
+        <a href="{{ route('login') }}"  class="btn py-2 px-4 d-none d-lg-inline-block">
             Become a Member <i class="fa fa-arrow-right ms-2 mt-3"></i>
         </a>
         @endguest
