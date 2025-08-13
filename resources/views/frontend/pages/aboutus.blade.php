@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master') {{-- Change to your layout --}}
+@extends('frontend.layouts.master')
 
 @section('title', 'Who We Are')
 
@@ -8,31 +8,40 @@
         Who We Are
     </h1>
 
-    <p class="lead fw-bold text-dark">
-        Urhobo Progress Union (UPU) of Canada – National Body
-    </p>
+    <div class="row align-items-center">
+        <div class="col-md-5 text-center mb-4 mb-md-0">
+            <img src="{{ asset('images/whowe.jpg') }}" 
+                 alt="UPU Canada Member" 
+                 class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-7">
+            <p class="lead fw-bold text-dark">
+                Urhobo Progress Union (UPU) of Canada – National Body
+            </p>
 
-    <p class="fs-5">
-        The <strong>Urhobo Progress Union (UPU) of Canada</strong> is the officially recognized 
-        national umbrella organization representing Urhobo people across Canada. 
-        We are a <strong>cultural</strong>, <strong>non-profit</strong>, and 
-        <strong>community-driven</strong> body committed to the preservation, 
-        promotion, and advancement of Urhobo heritage, unity, and values within 
-        the Canadian multicultural landscape.
-    </p>
+            <p class="fs-5">
+                The <strong>Urhobo Progress Union (UPU) of Canada</strong> is the officially recognized 
+                national umbrella organization representing Urhobo people across Canada. 
+                We are a <strong>cultural</strong>, <strong>non-profit</strong>, and 
+                <strong>community-driven</strong> body committed to the preservation, 
+                promotion, and advancement of Urhobo heritage, unity, and values within 
+                the Canadian multicultural landscape.
+            </p>
 
-    <p class="fs-5">
-        Founded to foster a strong sense of identity, belonging, and collaboration among Urhobo descendants in Canada, 
-        the <strong>UPU Canada</strong> serves as a central platform for advocacy, 
-        cultural education, youth empowerment, and social development.
-    </p>
+            <p class="fs-5">
+                Founded to foster a strong sense of identity, belonging, and collaboration among Urhobo descendants in Canada, 
+                the <strong>UPU Canada</strong> serves as a central platform for advocacy, 
+                cultural education, youth empowerment, and social development.
+            </p>
 
-    <p class="fs-5">
-        Our leadership reflects the <strong>strength and dignity</strong> of the Urhobo nation. 
-        With the inauguration of the National Body on <strong>April 27, 2025</strong>, under 
-        the globally recognized structure of the UPU Worldwide, we now operate 
-        with a unified voice, clear vision, and strategic purpose.
-    </p>
+            <p class="fs-5">
+                Our leadership reflects the <strong>strength and dignity</strong> of the Urhobo nation. 
+                With the inauguration of the National Body on <strong>April 27, 2025</strong>, under 
+                the globally recognized structure of the UPU Worldwide, we now operate 
+                with a unified voice, clear vision, and strategic purpose.
+            </p>
+        </div>
+    </div>
 
     <h3 class="mt-5 fw-bold text-primary">Our Mission</h3>
     <ul class="fs-5">
