@@ -10,7 +10,7 @@
 
     <div class="row align-items-center">
         <div class="col-md-5 text-center mb-4 mb-md-0">
-            <img src="{{ asset('images/whowe.jpg') }}" 
+            <img src="{{ asset('img/whowe.jpg') }}" 
                  alt="UPU Canada Member" 
                  class="img-fluid rounded shadow">
         </div>
