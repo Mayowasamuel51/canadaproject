@@ -109,7 +109,7 @@
             </li>
         </ul>
 
-        <a href="{{ route('cart.index') }}" class="btn btn-primary w-100">Go to Checkout</a>
+        <a class="btn btn-primary w-100">Go to Checkout</a>
     </div>
 </div>
 
